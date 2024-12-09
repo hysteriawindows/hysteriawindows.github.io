@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://hysteriawindows.github.io/news/article-23014.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vue滑块验证码组件anji-captcha的使用</title>
+        <meta name="description" content="说明 最近需要改一下首页界面，将之前的字符验证码改成滑块验证码（这样更好用一些），找了一下发现了anji-captcha这个组件，效果如下  快速开始 前端 首先将仓库克隆下来-&gt;https:/" />
+        <link rel="icon" href="__ADDON__/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
+    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W3GH5FWSVJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                                        <a class="navbar-brand logo_h" href="/">
+                        <span>Hysteria Windows</span>
+                    </a>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Hero Banner Area Start =================-->
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container text-center">
+            <h1>Vue滑块验证码组件anji-captcha的使用</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!--================Hero Banner Area End =================-->
+    <!--================About  Area =================-->
+    <section class="statics-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> <h2>说明</h2> <p>最近需要改一下首页界面，将之前的字符验证码改成滑块验证码（这样更好用一些），找了一下发现了<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://captcha.anji-plus.com/#/doc"  title="anji-captcha" rel="nofollow">anji-captcha</a>这个组件，效果如下</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220707/98b945bfc42b19e429794d8e700f193d.jpg"></p> <h2>快速开始</h2> <h3>前端</h3> <p>首先将仓库克隆下来-&gt;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/anji-plus/captcha.git"  title="https://github.com/anji-plus/captcha.git" rel="nofollow">https://github.com/anji-plus/captcha.git</a>，然后在自己的工程里copy需要的文件</p> <pre><code>1)复制view/vue/src/components/verifition文件夹,到自己工程对应目录下 复制view/vue/src/assets到自己工程对应目录下  2)安装请求和加密依赖 npm install axios  crypto-js   -S</code></pre> <p>前端请求使用的axios，需要换成自己工程的axios，这样请求后端路径才会正确，配置位于verifition/api/index.js，同时如果后端有对请求拦截请过滤掉/captcha/get和/captcha/check两个后端接口</p> <p>示例使用</p> <pre><code class="language-html">&lt;template&gt;   &lt;div&gt;     &lt;Verify       @success="success"       :mode="'pop'"       :captchaType="'blockPuzzle'"       :imgSize="{ width: '330px', height: '155px' }"       ref="verify"     &gt;&lt;/Verify&gt;     &lt;button @click="useVerify"&gt;调用验证组件&lt;/button&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; //引入组件 import Verify from "@/components/verifition/Verify"; export default {   name: "app",   components: {     Verify,   },   methods: {     success(params) {         console.log("成功，下面是二次验证")       // params 返回的二次验证参数, 和登录参数一起回传给登录接口，方便后台进行二次验证     },     useVerify() {       this.$refs.verify.show();     },   }, }; &lt;/script&gt;</code></pre> <h3>后端</h3> <p>有starter版本的包，还是比较方便的</p> <pre><code class="language-html">        &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;com.anji-plus&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-captcha&lt;/artifactId&gt;             &lt;version&gt;1.2.8&lt;/version&gt;         &lt;/dependency&gt;</code></pre> <p>application.yml</p> <pre><code>server:   port: 8080 # 滑动验证，底图路径，不配置将使用默认图片 # 支持全路径 # 支持项目路径,以classpath:开头,取resource目录下路径,例：classpath:images/jigsaw spring:   redis:     database: 3     host: 151.168.99.100     password: '123456'     port: 6379 aj:   captcha:     jigsaw: classpath:images/jigsaw     #滑动验证，底图路径，不配置将使用默认图片     ##支持全路径     # 支持项目路径,以classpath:开头,取resource目录下路径,例：classpath:images/pic-click     pic-click: classpath:images/pic-click     # 对于分布式部署的应用，我们建议应用自己实现CaptchaCacheService，比如用Redis或者memcache，     # 参考CaptchaCacheServiceRedisImpl.java     # 如果应用是单点的，也没有使用redis，那默认使用内存。     # 内存缓存只适合单节点部署的应用，否则验证码生产与验证在节点之间信息不同步，导致失败。     # ！！！ 注意啦，如果应用有使用spring-boot-starter-data-redis，     # 请打开CaptchaCacheServiceRedisImpl.java注释。     # redis -----&gt;  SPI： 在resources目录新建META-INF.services文件夹(两层)，参考当前服务resources。     # 缓存local/redis...     cache-type: redis     # local缓存的阈值,达到这个值，清除缓存     cache-number: 1000     # local定时清除过期缓存(单位秒),设置为0代表不执行     timing-clear: 180     # 验证码类型default两种都实例化。     type: default     # 汉字统一使用Unicode,保证程序通过@value读取到是中文，可通过这个在线转换;yml格式不需要转换     # https://tool.chinaz.com/tools/unicode.aspx 中文转Unicode     # 右下角水印文字(我的水印)     water-mark: Yunlingfly     # 右下角水印字体(不配置时，默认使用文泉驿正黑)     # 由于宋体等涉及到版权，我们jar中内置了开源字体【文泉驿正黑】     # 方式一：直接配置OS层的现有的字体名称，比如：宋体     # 方式二：自定义特定字体，请将字体放到工程resources下fonts文件夹，支持ttf\ttc\otf字体     # aj.captcha.water-font=WenQuanZhengHei.ttf     # 点选文字验证码的文字字体(文泉驿正黑)     # aj.captcha.font-type=WenQuanZhengHei.ttf     # 校验滑动拼图允许误差偏移量(默认5像素)     slip-offset: 5     # aes加密坐标开启或者禁用(true|false)     aes-status: true     # 滑动干扰项(0/1/2)     interference-options: 1      history-data-clear-enable: true      # 接口请求次数一分钟限制是否开启 true|false     req-frequency-limit-enable: true     # 验证失败5次，get接口锁定     req-get-lock-limit: 5     # 验证失败后，锁定时间间隔,s     req-get-lock-seconds: 60     # get接口一分钟内请求数限制     req-get-minute-limit: 30     # check接口一分钟内请求数限制     req-check-minute-limit: 60     # verify接口一分钟内请求数限制     req-verify-minute-limit: 60</code></pre> <p>将service/springboot/src/main/resources下的images和METE-INF文件夹copy到自己的工程里，将CaptchaCacheService文件里的内容改为自己的目录并新建CaptchaCacheServiceRedisImpl文件作为缓存，内容如下</p> <pre><code class="language-java">package cn.yunlingfly.springbootanjicaptcha.service;  import com.anji.captcha.service.CaptchaCacheService; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.data.redis.core.StringRedisTemplate;  import java.util.concurrent.TimeUnit;  /**  * 对于分布式部署的应用，我们建议应用自己实现CaptchaCacheService，比如用Redis，参考service/spring-boot代码示例。  * 如果应用是单点的，也没有使用redis，那默认使用内存。  * 内存缓存只适合单节点部署的应用，否则验证码生产与验证在节点之间信息不同步，导致失败。  * &lt;p&gt;  * ☆☆☆ SPI： 在resources目录新建META-INF.services文件夹(两层)，参考当前服务resources。  * &lt;p&gt;  * 使用redis缓存  *  * @author lide1202@hotmail.com  * @date 2020-05-12  */ public class CaptchaCacheServiceRedisImpl implements CaptchaCacheService {      @Override     public String type() {         return "redis";     }      @Autowired     private StringRedisTemplate stringRedisTemplate;      @Override     public void set(String key, String value, long expiresInSeconds) {         stringRedisTemplate.opsForValue().set(key, value, expiresInSeconds, TimeUnit.SECONDS);     }      @Override     public boolean exists(String key) {         return stringRedisTemplate.hasKey(key);     }      @Override     public void delete(String key) {         stringRedisTemplate.delete(key);     }      @Override     public String get(String key) {         return stringRedisTemplate.opsForValue().get(key);     }      @Override     public Long increment(String key, long val) {         return stringRedisTemplate.opsForValue().increment(key, val);     } }</code></pre> <h2>测试</h2> <p>前后端分别启动后，浏览器访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:3000/#/captcha"  title="http://localhost:3000/#/captcha" rel="nofollow">http://localhost:3000/#/captcha</a>即可看到结果</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220707/78b78979adf4619a6a69d372c287509e.jpg"></p> <p>为了方便测试，我将我前后端都上传到Github了，代码戳</p> <p>前端-&gt;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Yunlingfly/vue-captcha"  title="https://github.com/Yunlingfly/vue-captcha" rel="nofollow">https://github.com/Yunlingfly/vue-captcha</a></p> <p>后端-&gt;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Yunlingfly/springboot-anji-captcha"  title="https://github.com/Yunlingfly/springboot-anji-captcha" rel="nofollow">https://github.com/Yunlingfly/springboot-anji-captcha</a></p> <p>官方文档-&gt;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://captcha.anji-plus.com/#/doc"  title="AJ-Captcha在线体验" rel="nofollow">AJ-Captcha在线体验</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22557.htm">家庭小型狗粮加工机器 家庭小型狗粮加工机器图片</a></p>
+                                        <p>下一个：<a href="/news/article-23015.htm">通过make生成执行文件的过程详解_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23014.htm" title="Vue滑块验证码组件anji-captcha的使用">Vue滑块验证码组件anji-captcha的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-hysteria-github.htm" title="「11月7日」最高速度19.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月7日」最高速度19.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-hysteria-github.htm" title="「9月6日」最高速度18.5M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月6日」最高速度18.5M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-hysteria-node.htm" title="「10月10日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月10日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-hysteria-node.htm" title="「8月15日」最高速度18.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月15日」最高速度18.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-free-node-subscribe-links.htm" title="「11月16日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月16日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-node-share.htm" title="「9月16日」最高速度21.4M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月16日」最高速度21.4M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share.htm" title="「11月21日」最高速度18.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月21日」最高速度18.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-sing-hysteria-windows.htm" title="「9月2日」最高速度20.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月2日」最高速度20.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="「11月30日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月30日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About Area End =================-->
+        <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    HysteriaWindows免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                    <a href="#"><i class="ti-dribbble"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/popper.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/contact.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/theme.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
