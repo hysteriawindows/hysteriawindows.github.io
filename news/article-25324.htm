@@ -81,7 +81,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <h3 id="redis的数据淘汰策略">Redis的数据淘汰策略</h3> <ul> <li>volatile-lru（least recently used）：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰</li> <li>volatile-ttl：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰</li> <li>volatile-random：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰</li> <li>allkeys-lru（least recently used）：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的 key（这个是最常用的）</li> <li>allkeys-random：从数据集（server.db[i].dict）中任意选择数据淘汰</li> <li>no-eviction：禁止驱逐数据，也就是说当内存不足以容纳新写入数据时，新写入操作会报错。</li> </ul> <h3 id="redis-数据过期后的删除策略">Redis 数据过期后的删除策略</h3> <ul> <li>惰性删除 ：只会在取出key的时候才对数据进行过期检查。这样对CPU最友好，但是可能会造成太多过期 key 没有被删除。</li> <li>定期删除 ：每隔一段时间抽取一批 key 执行删除过期key操作。并且，Redis 底层会通过限制删除操作执行的时长和频率来减少删除操作对CPU时间的影响。</li> </ul> <blockquote> <p>Redis 采用的是 定期删除+惰性/懒汉式删除。<br /> 但是，仅仅通过给 key 设置过期时间还是有问题的。因为还是可能存在定期删除和惰性删除漏掉了很多过期 key 的情况。这样就导致大量过期 key 堆积在内存里，然后就Out of memory了。</p> </blockquote> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3 id="redis的数据淘汰策略">Redis的数据淘汰策略</h3> <ul> <li>volatile-lru（least recently used）：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰</li> <li>volatile-ttl：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰</li> <li>volatile-random：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰</li> <li>allkeys-lru（least recently used）：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的 key（这个是最常用的）</li> <li>allkeys-random：从数据集（server.db[i].dict）中任意选择数据淘汰</li> <li>no-eviction：禁止驱逐数据，也就是说当内存不足以容纳新写入数据时，新写入操作会报错。</li> </ul> <h3 id="redis-数据过期后的删除策略">Redis 数据过期后的删除策略</h3> <ul> <li>惰性删除 ：只会在取出key的时候才对数据进行过期检查。这样对CPU最友好，但是可能会造成太多过期 key 没有被删除。</li> <li>定期删除 ：每隔一段时间抽取一批 key 执行删除过期key操作。并且，Redis 底层会通过限制删除操作执行的时长和频率来减少删除操作对CPU时间的影响。</li> </ul> <blockquote> <p>Redis 采用的是 定期删除+惰性/懒汉式删除。<br /> 但是，仅仅通过给 key 设置过期时间还是有问题的。因为还是可能存在定期删除和惰性删除漏掉了很多过期 key 的情况。这样就导致大量过期 key 堆积在内存里，然后就Out of memory了。</p> </blockquote> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-24864.htm">猫粮狗粮店铺名字（狗粮店名怎么起名）</a></p>
                                         <p>下一个：<a href="/news/article-25325.htm">动物医院急救电话号码 动物医院急救电话号码是多少</a></p>
@@ -94,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share-links.htm" title="「11月26日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月26日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-23014.htm" title="Vue滑块验证码组件anji-captcha的使用">Vue滑块验证码组件anji-captcha的使用</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-today-hysteria-node.htm" title="「11月11日」最高速度21.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月11日」最高速度21.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="「12月12日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月12日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-12-node-share.htm" title="「10月12日」最高速度22.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月12日」最高速度22.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-22-latest-hysteria-node.htm" title="「8月22日」最高速度20.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月22日」最高速度20.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-19803.htm" title="Python 的math 模块">Python 的math 模块</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-subscribe-node.htm" title="「9月21日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月21日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-24367.htm" title="宠物粮食市场预测分析论文 宠物粮食市场预测分析论文怎么写">宠物粮食市场预测分析论文 宠物粮食市场预测分析论文怎么写</a></li>
-                        <li class="py-2"><a href="/news/article-18911.htm" title="领养宠物需要注意的事项有哪些（领养宠物需要收费吗）">领养宠物需要注意的事项有哪些（领养宠物需要收费吗）</a></li>
+                        <li class="py-2"><a href="/news/article-28116.htm" title="自己给狗狗打的疫苗能办狗证吗?（自己给狗狗打的疫苗,疫苗本有用吗）">自己给狗狗打的疫苗能办狗证吗?（自己给狗狗打的疫苗,疫苗本有用吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-hysteria-github.htm" title="「9月27日」最高速度19M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月27日」最高速度19M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-hysteria-github.htm" title="「11月3日」最高速度19.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月3日」最高速度19.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21633.htm" title="十大品牌兽药厂家 十大品牌兽药厂家是哪些">十大品牌兽药厂家 十大品牌兽药厂家是哪些</a></li>
+                        <li class="py-2"><a href="/news/article-23938.htm" title="宠物粮食加工厂设备生产厂家电话号码查询（宠物粮食加工厂设备生产厂家电话号码查询）">宠物粮食加工厂设备生产厂家电话号码查询（宠物粮食加工厂设备生产厂家电话号码查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-node-share.htm" title="「9月23日」最高速度19.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月23日」最高速度19.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-hysteria-node-github.htm" title="「10月2日」最高速度22.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月2日」最高速度22.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-hysteria-node.htm" title="「10月3日」最高速度18.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月3日」最高速度18.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-node-subscribe-links.htm" title="「8月25日」最高速度22.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月25日」最高速度22.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19804.htm" title="正则表达式匹配IP的表达式">正则表达式匹配IP的表达式</a></li>
                     </ul>
     </div>
 </div>
@@ -115,7 +116,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -142,6 +143,15 @@
     <footer class="footer-area">
         <div class="container">
             <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                 <p class="footer-text m-0 col-lg-8 col-md-12">
                     HysteriaWindows免费节点官网 版权所有 Powered by WordPress
                 </p>

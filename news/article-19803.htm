@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Python 的math 模块</title>
         <meta name="description" content="一、math库简介 math库是python提供的内置数学类函数库 math库不支持复数类型，仅支持整数和浮点数运算 math库一共提供了4个数字常数和44个函数,其中44个函数共分为4类，包括16个" />
-        <link rel="icon" href="__ADDON__/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
@@ -18,8 +18,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
-    
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -82,7 +81,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <hr/> <pre>一、math库简介 math库是python提供的内置数学类函数库 math库不支持复数类型，仅支持整数和浮点数运算 math库一共提供了4个数字常数和44个函数,其中44个函数共分为4类，包括16个数值表示函数，8个幂对数函数，16个三角对数函数和4个高等特殊函数 二、数字常数 import math print(math.pi) # 圆周率，值为3.141592653589793 print(math.e) # 自然对数，值为2.718281828459045 print(math.inf) # 正无穷大，负无穷大为-math.inf print(math.nan) # 非浮点数标记，NAN（Not a Number）</pre> <pre> 三、数值表示函数 import math print(math.fmod(5,2))           # 返回x与y的模 math.fmod(x,y) print(math.fsum([5,2,2,2.3]))   # 浮点数精确求和 math.fsum([x,y,...]) print(math.fabs(-999))          # 返回x的绝对值 math.fabs(x) print(math.ceil(2.3) )          # 向上取整,返回不小于x的最小整 math.ceil(x) print(math.floor(2.3))          #向下取整,返回不大于x的最大整数 math.floor(x) print(math.factorial(5))        # 返回x的阶乘,如果x是小数或负数,返回ValueError math.factorial(x) print(math.gcd(9, 3))           # 返回a与b的最大公约数 math.gcd(a, b) print(math.frexp(40))            # 返回(m,e),当x=0时,返回(0.0,0) math.frexp(x) print(math.ldexp(5, 3))         # 返回x*(2的i次方)运算值,math.frexp(x)函数的反运算 math.ldexp(x, i) print(math.modf(5.5))            # 返回x的小数和整数部分  math.modf(x) print(math.trunc(-90.3))         # 返回x的整数部分 math.trunc(x) print(math.copysign(90,-6))      # 用数值y的正负号替换数值x的正负号 默认返回小数点后一位 math.copysign(x,y) print(math.isclose(20, 20))      # 比较a和b的相似性,返回True或False math.isclose(a, b) print(math.isfinite(math.inf))   #如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false,否则返回True math.isfinite(x) print(math.isinf(math.inf))             # 当x为正数或者负数无穷大, 返回True, 否则返回False math.isinf(x) print(math.isnan(math.nan))# 当x是NaN, 返回True, 否则返回False math.isnan(x)   四、幂对数函数 import math print(math.pow(2, 3)) # 返回x的y次幂math.pow(x, y)  print(math.exp(2)) # 返回e的x次幂, e是自然对数 math.exp(x)  print('we',math.expm1(2)) # 返回e的x次幂减1 math.expm1(x)  print(math.sqrt(2)) # 返回x的平方根 math.sqrt(x)  print(math.log(10,10)) # 返回x的对数值,只输入x时,返回自然对数,即lnx  print(math.log1p(math.e-1)) # 返回1+x的自然对数值 math.log1p(x)  print(math.log2(4)) # 返回x的2的对数值 math.log2(x)  print(math.log10(100)) # 返回x的10的对数值 math.log10(x)  五、三角运算函数 import math print(math.degrees(1)) # 角度x的弧度值转角度值 math.degrees(x)  print(math.radians(math.pi)) # 角度x的角度值转弧度值 math.radians(x)  print(math.hypot(1,1)) # 返回(x,y)坐标点到原点(0,0)的距离 math.hypot(x,y)  print(math.sin(0)) # 返回x的正弦函数值,x是弧度值 math.sin(x)  print(math.cos(math.pi)) # 返回x的余弦函数值,x是弧度值 math.cos(x)  print(math.tan(math.pi)) # 返回x的正切函数值,x是弧度值 math.tan(x)  print(math.asin(1)) # 返回x的反正弦函数值,x是弧度值 math.asin(x)  print(math.acos(1)) # 返回x的反余弦函数值,x是弧度值 math.acos(x)  print(math.atan(1)) # 返回x的反正切函数值,x是弧度值 math.atan(x)  print(math.atan2(1,2)) # 返回y/x的反正切函数值,x是弧度值 math.atan2(y, x)  print(math.sinh(math.pi)) # 返回x的双曲正弦函数值,x是弧度值 math.sinh(x)  print(math.cosh(math.pi)) # 返回x的双曲余弦函数值,x是弧度值 math.cosh(x)  print(math.tanh(math.pi)) # 返回x的双曲正切函数值,x是弧度值 math.tanh(x)  print(math.atanh(0.999)) # 返回x的反双曲正切函数值,x是弧度值 math.atanh(x)  print(math.asinh(0.99)) # 返回x的反双曲正弦函数值,x是弧度值 math.asinh(x)  print(math.acosh(1)) # 返回x的反双曲余弦函数值,x是弧度值 math.acosh(x) x -- 必需，一个数字，大于等于 1   六、高等特殊函数 import math print(math.erf(2)) # 高斯误差函数,应用于概率论,统计学领域 print(math.erfc(2)) # 余数高斯误差函数,math.erfc(x) = 1-math.erf(x) print(math.gamma(2)) # 伽玛函数,也叫欧拉第二积分函数 print(math.lgamma(2)) # 伽玛函数的自然对数</pre> </p></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <hr/> <pre>一、math库简介 math库是python提供的内置数学类函数库 math库不支持复数类型，仅支持整数和浮点数运算 math库一共提供了4个数字常数和44个函数,其中44个函数共分为4类，包括16个数值表示函数，8个幂对数函数，16个三角对数函数和4个高等特殊函数 二、数字常数 import math print(math.pi) # 圆周率，值为3.141592653589793 print(math.e) # 自然对数，值为2.718281828459045 print(math.inf) # 正无穷大，负无穷大为-math.inf print(math.nan) # 非浮点数标记，NAN（Not a Number）</pre> <pre> 三、数值表示函数 import math print(math.fmod(5,2))           # 返回x与y的模 math.fmod(x,y) print(math.fsum([5,2,2,2.3]))   # 浮点数精确求和 math.fsum([x,y,...]) print(math.fabs(-999))          # 返回x的绝对值 math.fabs(x) print(math.ceil(2.3) )          # 向上取整,返回不小于x的最小整 math.ceil(x) print(math.floor(2.3))          #向下取整,返回不大于x的最大整数 math.floor(x) print(math.factorial(5))        # 返回x的阶乘,如果x是小数或负数,返回ValueError math.factorial(x) print(math.gcd(9, 3))           # 返回a与b的最大公约数 math.gcd(a, b) print(math.frexp(40))            # 返回(m,e),当x=0时,返回(0.0,0) math.frexp(x) print(math.ldexp(5, 3))         # 返回x*(2的i次方)运算值,math.frexp(x)函数的反运算 math.ldexp(x, i) print(math.modf(5.5))            # 返回x的小数和整数部分  math.modf(x) print(math.trunc(-90.3))         # 返回x的整数部分 math.trunc(x) print(math.copysign(90,-6))      # 用数值y的正负号替换数值x的正负号 默认返回小数点后一位 math.copysign(x,y) print(math.isclose(20, 20))      # 比较a和b的相似性,返回True或False math.isclose(a, b) print(math.isfinite(math.inf))   #如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false,否则返回True math.isfinite(x) print(math.isinf(math.inf))             # 当x为正数或者负数无穷大, 返回True, 否则返回False math.isinf(x) print(math.isnan(math.nan))# 当x是NaN, 返回True, 否则返回False math.isnan(x)   四、幂对数函数 import math print(math.pow(2, 3)) # 返回x的y次幂math.pow(x, y)  print(math.exp(2)) # 返回e的x次幂, e是自然对数 math.exp(x)  print('we',math.expm1(2)) # 返回e的x次幂减1 math.expm1(x)  print(math.sqrt(2)) # 返回x的平方根 math.sqrt(x)  print(math.log(10,10)) # 返回x的对数值,只输入x时,返回自然对数,即lnx  print(math.log1p(math.e-1)) # 返回1+x的自然对数值 math.log1p(x)  print(math.log2(4)) # 返回x的2的对数值 math.log2(x)  print(math.log10(100)) # 返回x的10的对数值 math.log10(x)  五、三角运算函数 import math print(math.degrees(1)) # 角度x的弧度值转角度值 math.degrees(x)  print(math.radians(math.pi)) # 角度x的角度值转弧度值 math.radians(x)  print(math.hypot(1,1)) # 返回(x,y)坐标点到原点(0,0)的距离 math.hypot(x,y)  print(math.sin(0)) # 返回x的正弦函数值,x是弧度值 math.sin(x)  print(math.cos(math.pi)) # 返回x的余弦函数值,x是弧度值 math.cos(x)  print(math.tan(math.pi)) # 返回x的正切函数值,x是弧度值 math.tan(x)  print(math.asin(1)) # 返回x的反正弦函数值,x是弧度值 math.asin(x)  print(math.acos(1)) # 返回x的反余弦函数值,x是弧度值 math.acos(x)  print(math.atan(1)) # 返回x的反正切函数值,x是弧度值 math.atan(x)  print(math.atan2(1,2)) # 返回y/x的反正切函数值,x是弧度值 math.atan2(y, x)  print(math.sinh(math.pi)) # 返回x的双曲正弦函数值,x是弧度值 math.sinh(x)  print(math.cosh(math.pi)) # 返回x的双曲余弦函数值,x是弧度值 math.cosh(x)  print(math.tanh(math.pi)) # 返回x的双曲正切函数值,x是弧度值 math.tanh(x)  print(math.atanh(0.999)) # 返回x的反双曲正切函数值,x是弧度值 math.atanh(x)  print(math.asinh(0.99)) # 返回x的反双曲正弦函数值,x是弧度值 math.asinh(x)  print(math.acosh(1)) # 返回x的反双曲余弦函数值,x是弧度值 math.acosh(x) x -- 必需，一个数字，大于等于 1   六、高等特殊函数 import math print(math.erf(2)) # 高斯误差函数,应用于概率论,统计学领域 print(math.erfc(2)) # 余数高斯误差函数,math.erfc(x) = 1-math.erf(x) print(math.gamma(2)) # 伽玛函数,也叫欧拉第二积分函数 print(math.lgamma(2)) # 伽玛函数的自然对数</pre> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-19350.htm">北京有免费领养狗狗的地方 北京有免费领养狗狗的地方吗</a></p>
                                         <p>下一个：<a href="/news/article-19804.htm">正则表达式匹配IP的表达式</a></p>
@@ -95,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-node-subscribe.htm" title="「9月4日」最高速度20M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月4日」最高速度20M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-node-share-links.htm" title="「10月31日」最高速度19.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月31日」最高速度19.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-latest-hysteria-node.htm" title="「12月3日」最高速度20.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月3日」最高速度20.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe.htm" title="「11月15日」最高速度22.4M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月15日」最高速度22.4M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-high-speed-nodes.htm" title="「10月26日」最高速度19.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月26日」最高速度19.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-21183.htm" title="中国农业大学动物医院地址在哪里啊（中国农业大学动物医院地址在哪里啊）">中国农业大学动物医院地址在哪里啊（中国农业大学动物医院地址在哪里啊）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-29-today-hysteria-node.htm" title="「8月29日」最高速度20.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月29日」最高速度20.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-20261.htm" title="动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）">动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share-links.htm" title="「9月28日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月28日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-high-speed-nodes.htm" title="「12月1日」最高速度19.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月1日」最高速度19.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23938.htm" title="宠物粮食加工厂设备生产厂家电话号码查询（宠物粮食加工厂设备生产厂家电话号码查询）">宠物粮食加工厂设备生产厂家电话号码查询（宠物粮食加工厂设备生产厂家电话号码查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-node-share.htm" title="「12月16日」最高速度21.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月16日」最高速度21.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share.htm" title="「11月21日」最高速度18.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月21日」最高速度18.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="「11月30日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月30日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-hysteria-node-github.htm" title="「12月4日」最高速度21.4M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月4日」最高速度21.4M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23015.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-sing-hysteria-windows.htm" title="「10月6日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月6日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-node-subscribe-links.htm" title="「11月25日」最高速度21.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月25日」最高速度21.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-hysteria-node-share.htm" title="「10月27日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月27日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-today-hysteria-node.htm" title="「9月9日」最高速度21M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月9日」最高速度21M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -116,7 +116,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -143,6 +143,15 @@
     <footer class="footer-area">
         <div class="container">
             <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                 <p class="footer-text m-0 col-lg-8 col-md-12">
                     HysteriaWindows免费节点官网 版权所有 Powered by WordPress
                 </p>

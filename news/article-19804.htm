@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>正则表达式匹配IP的表达式</title>
         <meta name="description" content="原文：https://www.jb51.net/article/101221.htm 这里给大家详细讲解一下一个匹配IP地址的正则表达式， 　　有关正则方面的知识，会在详细的讲解中提到。 　　在讲解之" />
-        <link rel="icon" href="__ADDON__/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
@@ -18,8 +18,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
-    
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -82,7 +81,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <p>原文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/101221.htm"  rel="nofollow">https://www.jb51.net/article/101221.htm</a></p> <p>这里给大家详细讲解一下一个匹配IP地址的正则表达式，</p> <p>　　有关正则方面的知识，会在详细的讲解中提到。</p> <p>　　在讲解之前，我先给大家介绍一下，ip地址的生成规则。</p> <p>　　IP地址，是由32位数字二进制转为四个十进制的字符串组成。</p> <p>　　怎么转化？下面讲解：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 二进制：11111111111111111111111111111111</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 分为四部分：11111111.11111111.11111111.11111111</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 转化：2^7+2^6+2^5+2^4+2^3+2^2+2^1+2^0=255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 转为十进制范围：0~255.0~255.0~255.0~255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这就是IP地址的范围。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 根据这个生成IP的规则和范围，我们可以用正则表达式来匹配出IP地址，但怎么匹配呢？各人有各人的方法，这里我讲解一下我的思路。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 根据IP地址的字符串规律，我把匹配IP地址的表达式分为两部分来考虑。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一部分：匹配3个0~255.（注意后面的一个点）</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二部分：匹配最后的数字0~255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 也就是说，先匹配出 0~255.（注意后面的一个点） 这个字符串，然后重复匹配3次，然后再匹配最后的数字部分0~255。这就是我匹配IP地址的思路。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 首先，我要提一下，正则是没有办法做数字运算的，所以，我们无法用数字运算的方式筛选出IP的数字范围。既然没法用数字运算的方式筛选出IP的数字范围，那么我们应该用什么其他方式来筛选这个数字范围呢？我的思路是分组讨论，然后再把这些分组合并起来组成IP的数字范围。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ①、假设IP的数字是百位数，那么根据IP的数字范围，我们可以得出下面几种情况。假设第一个数字为1，那么这个数字的范围就为1[0-9][0-9]。这个应该不难理解，就不解释。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ②、假设第一个数字为2，那么根据IP数字的范围规则，这里又要分为两种情况，为什么？你想想，最大数字是255，当十位数为5时，个位数最大只能为5是吧？而当十位数为0到4时，个位数可以是任意数字对吧？</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以，这里的两种情况分别为：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A、2[0-4][0-9]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B、25[0-5]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ③、分析完了百位数的情况，接下来就是十位数的情况了，假如是十位数，那么十位数的前面第一个数不能为零是吧？</p> <p>所以十位数的情况可以是：[1-9][0-9]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ④、剩下的就是个位数的情况了，个位数的情况，大家应该很容易得出结论，就是：[0-9]。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 四种情况分析下来，我们得出了IP数字的范围分组为：</p> <p>　　　　　　　　1[0-9][0-9]</p> <p>　　　　　　　　2[0-4][0-9]</p> <p>　　　　　　　　25[0-5]</p> <p>　　　　　　　　[1-9][0-9]</p> <p>　　　　　　　　[0-9]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 怎么把上面的分组用正则表达式表示出来呢？很简单，用正则的或符号|和分组符号()就可以了，所以上面的分组正则表达式为：</p> <pre class="has"><code class="hljs">(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5])|([1-9][0-9])|([0-9]) </code></pre> <p>&nbsp;</p> <p>写到这里，数字的匹配范围正则表达式已经写好了，那么根据我前面的思路： 第一部分：匹配3个0~255.（注意后面的一个点）</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二部分：匹配最后的数字0~255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们来匹配IP地址的第一部分，正则表达式如下：　</p> <pre class="has"><code class="hljs">(1[0-9][0-9]\.)|(2[0-4][0-9]\.)|(25[0-5]\.)|([1-9][0-9]\.)|([0-9]\.) </code></pre> <p>　我在每个数字的后面加了一个点就是匹配出0~255.（注意后面的一个点）</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 那么怎么重复匹配三次呢？很简单，我们只要把这五个分组当成整体，再重复匹配三次就行了，正则表达式如下：　</p> <pre class="has"><code class="hljs">((1[0-9][0-9]\.)|(2[0-4][0-9]\.)|(25[0-5]\.)|([1-9][0-9]\.)|([0-9])\.)){3} </code></pre> <p>第一部分已经匹配出来了，接下来就是拼接上第二部分的数字了，数字部分上面已经写得很清楚了，就不再解释了，下面是完整的正则表达式：</p> <pre class="has"><code class="hljs">((1[0-9][0-9]\.)|(2[0-4][0-9]\.)|(25[0-5]\.)|([1-9][0-9]\.)|([0-9]\.)){3}((1[0-9][0-9])|(2[0-4][0-9])|(25[0-5])|([1-9][0-9])|([0-9]))</code></pre> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>原文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/101221.htm"  rel="nofollow">https://www.jb51.net/article/101221.htm</a></p> <p>这里给大家详细讲解一下一个匹配IP地址的正则表达式，</p> <p>　　有关正则方面的知识，会在详细的讲解中提到。</p> <p>　　在讲解之前，我先给大家介绍一下，ip地址的生成规则。</p> <p>　　IP地址，是由32位数字二进制转为四个十进制的字符串组成。</p> <p>　　怎么转化？下面讲解：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 二进制：11111111111111111111111111111111</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 分为四部分：11111111.11111111.11111111.11111111</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 转化：2^7+2^6+2^5+2^4+2^3+2^2+2^1+2^0=255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 转为十进制范围：0~255.0~255.0~255.0~255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这就是IP地址的范围。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 根据这个生成IP的规则和范围，我们可以用正则表达式来匹配出IP地址，但怎么匹配呢？各人有各人的方法，这里我讲解一下我的思路。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 根据IP地址的字符串规律，我把匹配IP地址的表达式分为两部分来考虑。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一部分：匹配3个0~255.（注意后面的一个点）</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二部分：匹配最后的数字0~255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 也就是说，先匹配出 0~255.（注意后面的一个点） 这个字符串，然后重复匹配3次，然后再匹配最后的数字部分0~255。这就是我匹配IP地址的思路。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 首先，我要提一下，正则是没有办法做数字运算的，所以，我们无法用数字运算的方式筛选出IP的数字范围。既然没法用数字运算的方式筛选出IP的数字范围，那么我们应该用什么其他方式来筛选这个数字范围呢？我的思路是分组讨论，然后再把这些分组合并起来组成IP的数字范围。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ①、假设IP的数字是百位数，那么根据IP的数字范围，我们可以得出下面几种情况。假设第一个数字为1，那么这个数字的范围就为1[0-9][0-9]。这个应该不难理解，就不解释。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ②、假设第一个数字为2，那么根据IP数字的范围规则，这里又要分为两种情况，为什么？你想想，最大数字是255，当十位数为5时，个位数最大只能为5是吧？而当十位数为0到4时，个位数可以是任意数字对吧？</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以，这里的两种情况分别为：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A、2[0-4][0-9]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B、25[0-5]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ③、分析完了百位数的情况，接下来就是十位数的情况了，假如是十位数，那么十位数的前面第一个数不能为零是吧？</p> <p>所以十位数的情况可以是：[1-9][0-9]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ④、剩下的就是个位数的情况了，个位数的情况，大家应该很容易得出结论，就是：[0-9]。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 四种情况分析下来，我们得出了IP数字的范围分组为：</p> <p>　　　　　　　　1[0-9][0-9]</p> <p>　　　　　　　　2[0-4][0-9]</p> <p>　　　　　　　　25[0-5]</p> <p>　　　　　　　　[1-9][0-9]</p> <p>　　　　　　　　[0-9]</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 怎么把上面的分组用正则表达式表示出来呢？很简单，用正则的或符号|和分组符号()就可以了，所以上面的分组正则表达式为：</p> <pre class="has"><code class="hljs">(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5])|([1-9][0-9])|([0-9]) </code></pre> <p>&nbsp;</p> <p>写到这里，数字的匹配范围正则表达式已经写好了，那么根据我前面的思路： 第一部分：匹配3个0~255.（注意后面的一个点）</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二部分：匹配最后的数字0~255</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们来匹配IP地址的第一部分，正则表达式如下：　</p> <pre class="has"><code class="hljs">(1[0-9][0-9]\.)|(2[0-4][0-9]\.)|(25[0-5]\.)|([1-9][0-9]\.)|([0-9]\.) </code></pre> <p>　我在每个数字的后面加了一个点就是匹配出0~255.（注意后面的一个点）</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 那么怎么重复匹配三次呢？很简单，我们只要把这五个分组当成整体，再重复匹配三次就行了，正则表达式如下：　</p> <pre class="has"><code class="hljs">((1[0-9][0-9]\.)|(2[0-4][0-9]\.)|(25[0-5]\.)|([1-9][0-9]\.)|([0-9])\.)){3} </code></pre> <p>第一部分已经匹配出来了，接下来就是拼接上第二部分的数字了，数字部分上面已经写得很清楚了，就不再解释了，下面是完整的正则表达式：</p> <pre class="has"><code class="hljs">((1[0-9][0-9]\.)|(2[0-4][0-9]\.)|(25[0-5]\.)|([1-9][0-9]\.)|([0-9]\.)){3}((1[0-9][0-9])|(2[0-4][0-9])|(25[0-5])|([1-9][0-9])|([0-9]))</code></pre> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-19803.htm">Python 的math 模块</a></p>
                                         <p>下一个：<a href="/news/article-20261.htm">动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）</a></p>
@@ -95,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-node-subscribe-links.htm" title="「10月5日」最高速度22.5M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月5日」最高速度22.5M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-hysteria-github.htm" title="「11月3日」最高速度19.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月3日」最高速度19.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe-links.htm" title="「11月14日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月14日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-4-node-share-links.htm" title="「10月4日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月4日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-hysteria-node.htm" title="「10月10日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月10日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-hysteria-node-github.htm" title="「9月19日」最高速度22.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月19日」最高速度22.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-hysteria-node-share.htm" title="「10月27日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月27日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-node-subscribe-links.htm" title="「10月13日」最高速度22.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月13日」最高速度22.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-21-free-high-speed-nodes.htm" title="「8月21日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月21日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-hysteria-node-share.htm" title="「11月6日」最高速度22.5M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月6日」最高速度22.5M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22557.htm" title="家庭小型狗粮加工机器 家庭小型狗粮加工机器图片">家庭小型狗粮加工机器 家庭小型狗粮加工机器图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-high-speed-nodes.htm" title="「8月17日」最高速度20.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月17日」最高速度20.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-sing-hysteria-windows.htm" title="「9月26日」最高速度21M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月26日」最高速度21M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19350.htm" title="北京有免费领养狗狗的地方 北京有免费领养狗狗的地方吗">北京有免费领养狗狗的地方 北京有免费领养狗狗的地方吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-hysteria-github.htm" title="「10月30日」最高速度19.5M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月30日」最高速度19.5M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-today-hysteria-node.htm" title="「12月8日」最高速度19.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月8日」最高速度19.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-1-hysteria-github.htm" title="「9月1日」最高速度18M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月1日」最高速度18M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-sing-hysteria-windows.htm" title="「8月31日」最高速度18M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月31日」最高速度18M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-27652.htm" title="宠物美容学校排行榜前十名有哪些（全国前十宠物美容学校排名）">宠物美容学校排行榜前十名有哪些（全国前十宠物美容学校排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share-links.htm" title="「11月26日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月26日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -116,7 +116,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -143,6 +143,15 @@
     <footer class="footer-area">
         <div class="container">
             <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                 <p class="footer-text m-0 col-lg-8 col-md-12">
                     HysteriaWindows免费节点官网 版权所有 Powered by WordPress
                 </p>
