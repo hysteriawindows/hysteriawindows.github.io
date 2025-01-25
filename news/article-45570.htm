@@ -1,0 +1,209 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://hysteriawindows.github.io/news/article-45570.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue如何将对象中所有的key赋为空值_vue.js</title>
+        <meta name="description" content="目录  将对象中所有的key赋为空值  先来看看Object.assign的基本用法  vue空值报错问题     将对象中所有的key赋为空值 Object.assign的使用，当然你也可以使用fo" />
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-45570.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="vue如何将对象中所有的key赋为空值_vue.js" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/69bb30938a28db1c865c7eabdf37026a.webp" />
+        <meta property="og:release_date" content="2025-01-24T09:28:22" />
+    <meta property="og:updated_time" content="2025-01-24T09:28:22" />
+        <meta property="og:description" content="目录  将对象中所有的key赋为空值  先来看看Object.assign的基本用法  vue空值报错问题     将对象中所有的key赋为空值 Object.assign的使用，当然你也可以使用fo" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue如何将对象中所有的key赋为空值_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W3GH5FWSVJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                                        <a class="navbar-brand logo_h" href="/">
+                        <span>Hysteria Windows</span>
+                    </a>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Hero Banner Area Start =================-->
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container text-center">
+            <h1>vue如何将对象中所有的key赋为空值_vue.js</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!--================Hero Banner Area End =================-->
+    <!--================About  Area =================-->
+    <section class="statics-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">将对象中所有的key赋为空值</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">先来看看Object.assign的基本用法</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue空值报错问题</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>将对象中所有的key赋为空值</h2> <p>Object.assign的使用，当然你也可以使用for去遍历 然后再一一去赋值为空字符串，推荐使用（Object.assign）</p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>先来看看Object.assign的基本用法</h3> <p>Object.assign方法用于对象的合并，第一个参数（目标对象），可以有第二个，第三个参数，都是源对象，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p> <div class="ay1code"> <pre class="brush:js;">const target = {a:1};  const source1 = { b: 2 };  const source2 = { c: 3 };  Object.assign(target, source1, source2);  console.log(target) // {a:1, b:2, c:3}</pre> </div> <p>注意：Object.assign方法的第一个参数是目标对象，后面的参数都是源对象</p> <p>言归正传，有时候会碰到的需求是，有多个input框，每个input框都v-modei绑定了对应的value值，当点击重置按钮时，要清空所有input中的值，这时候可以用到Object.assign方法，具体怎么实现看代码</p> <p><strong>html代码</strong></p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;input type='text' v-model='valueData.value1'&gt;&lt;/input&gt;   &lt;input type='text' v-model='valueData.value2'&gt;&lt;/input&gt;   &lt;input type='text' v-model='valueData.value3'&gt;&lt;/input&gt;   &lt;button @click=‘toReset'&gt;重置（清空输入框）&lt;button&gt;</pre> </div> <p><strong>js 代码</strong></p> <div class="ay1code"> <pre class="brush:js;">const values = {    value1:'',    value2:'',    value3:'',  }  data(){   return {     valueData:Object.assign({},values)   }  },  methods：{    //这时候如果你随意在输入框输入值，点击重置按钮 ，只需要重新给valueData复制 就能清空input中的值了   toReset(){   this.valueData = Object.assign({},values)   }  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue空值报错问题</h2> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220423/be8db6ab1c36859940bdad7974402f54.jpg"></p> <p>如上图所示，提示percent为空，web效果图如下</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220423/5da137d0d628a103a813ca135235ce7a.jpg"></p> <p>如果是自测阶段不想麻烦就直接在数据库添加数据就行或者或者初始化方法赋初始值，最简便的还是在vue template里进行判断</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220423/2e5705d981e0e588e576d1aafa864f5d.jpg"></p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220423/7def4dad9cafa80f6fc217efb9f0dd4e.jpg"></p> <p>代码如下：</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220423/ebb2b53935a133ba0735c10a20c354fa.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45085.htm">宠物领养市场经济可行性分析报告怎么写（宠物领养数据）</a></p>
+                                        <p>下一个：<a href="/news/article-45571.htm">58同城宠物领养怎么发布信息（58同城如何发布领养宠物消息）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43589.htm" title="养猫多久才能完全信任你（养猫多久养熟）">养猫多久才能完全信任你（养猫多久养熟）</a></li>
+                        <li class="py-2"><a href="/news/article-19804.htm" title="正则表达式匹配IP的表达式">正则表达式匹配IP的表达式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe.htm" title="「12月7日」最高速度22.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月7日」最高速度22.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-38626.htm" title="netty依赖精简">netty依赖精简</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-node-subscribe-links.htm" title="「11月1日」最高速度21.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月1日」最高速度21.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39131.htm" title="北京动物疫苗生产厂家电话（北京动物疫苗生产厂家电话地址）">北京动物疫苗生产厂家电话（北京动物疫苗生产厂家电话地址）</a></li>
+                        <li class="py-2"><a href="/news/article-46077.htm" title="家猫为什么不建议打疫苗针呢（家猫为什么不建议打疫苗针呢）">家猫为什么不建议打疫苗针呢（家猫为什么不建议打疫苗针呢）</a></li>
+                        <li class="py-2"><a href="/news/article-31311.htm" title="动物防疫证在哪办（动物防疫证在哪里可以办理）">动物防疫证在哪办（动物防疫证在哪里可以办理）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-latest-hysteria-node.htm" title="「12月3日」最高速度20.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月3日」最高速度20.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43097.htm" title="兽医资格证考取条件（兽医资格证考取条件要求）">兽医资格证考取条件（兽医资格证考取条件要求）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About Area End =================-->
+        <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    HysteriaWindows免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                    <a href="#"><i class="ti-dribbble"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/popper.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/contact.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/theme.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
