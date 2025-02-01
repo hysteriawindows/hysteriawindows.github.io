@@ -1,0 +1,212 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://hysteriawindows.github.io/news/article-48035.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>分布式一致性协议之Paxos算法</title>
+        <meta name="description" content="目录 前置知识 问题描述 提案的选定 推导过程 Proposer生成提案 Accpetor批准提案 算法流程  之前文章介绍了2PC和3PC一致性协议，本文将继续介绍另一个Paxos算法  对于分布式" />
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-48035.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="分布式一致性协议之Paxos算法" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/3f0b48ff93e564e1374cd12de570efe7.webp" />
+        <meta property="og:release_date" content="2025-01-29T10:28:52" />
+    <meta property="og:updated_time" content="2025-01-29T10:28:52" />
+        <meta property="og:description" content="目录 前置知识 问题描述 提案的选定 推导过程 Proposer生成提案 Accpetor批准提案 算法流程  之前文章介绍了2PC和3PC一致性协议，本文将继续介绍另一个Paxos算法  对于分布式" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="分布式一致性协议之Paxos算法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W3GH5FWSVJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                                        <a class="navbar-brand logo_h" href="/">
+                        <span>Hysteria Windows</span>
+                    </a>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Hero Banner Area Start =================-->
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container text-center">
+            <h1>分布式一致性协议之Paxos算法</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!--================Hero Banner Area End =================-->
+    <!--================About  Area =================-->
+    <section class="statics-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-toc" style="margin-left:0px;"><a href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86" title="前置知识" rel="nofollow">前置知识</a></p> <p id="%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0-toc" style="margin-left:0px;"><a href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0" title="问题描述" rel="nofollow">问题描述</a></p> <p id="%E6%8F%90%E6%A1%88%E7%9A%84%E9%80%89%E5%AE%9A-toc" style="margin-left:40px;"><a href="#%E6%8F%90%E6%A1%88%E7%9A%84%E9%80%89%E5%AE%9A" title="提案的选定" rel="nofollow">提案的选定</a></p> <p id="%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B-toc" style="margin-left:80px;"><a href="#%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B" title="推导过程" rel="nofollow">推导过程</a></p> <p id="Proposer%E7%94%9F%E6%88%90%E6%8F%90%E6%A1%88-toc" style="margin-left:40px;"><a href="#Proposer%E7%94%9F%E6%88%90%E6%8F%90%E6%A1%88" title="Proposer生成提案" rel="nofollow">Proposer生成提案</a></p> <p id="Accpetor%E6%89%B9%E5%87%86%E6%8F%90%E6%A1%88-toc" style="margin-left:40px;"><a href="#Accpetor%E6%89%B9%E5%87%86%E6%8F%90%E6%A1%88" title="Accpetor批准提案" rel="nofollow">Accpetor批准提案</a></p> <p id="%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-toc" style="margin-left:40px;"><a href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B" title="算法流程" rel="nofollow">算法流程</a></p> <hr id="hr-toc"/> <p>之前文章介绍了2PC和3PC一致性协议，本文将继续介绍另一个Paxos算法</p> </h1> <p>对于分布式一致性算法，有两个最重要的属性：</p> <ol> <li>安全性：指那些需要保证永远都不会发生的事情</li> <li>活性：指那些最终一定会发生的事情</li> </ol> </h1> <p>假设有一组可以提出提案的进程集合，对于一致性算法，要求：</p> <ol> <li>这些提案最终只有一个被选定</li> <li>当一个提案被选定后，进程可以获取被选定的提案信息</li> </ol> <p>对于Paxos，安全性要求有：</p> <ol> <li>只有被提出提案才能被选定</li> <li>只有一个值会被选定</li> <li>如果某个进程认为某个提案被选定了，那这个提案必须真的是被选定的那个</li> </ol> <p>活性要求是：保证最终有一个提案被选定</p> <p>三种参与角色：</p> <p>Proposer：提案提出者</p> <p>Acceptor：提案接受批准者</p> <p>Learner：只获取最终被批准的提案</p> <h2 id="%E6%8F%90%E6%A1%88%E7%9A%84%E9%80%89%E5%AE%9A">提案的选定</h2> <p><span style="color:#fe2c24;"><strong>规则：</strong></span>Proposer向一个Acceptor集合发送提案，集合中的每个Acceptor都可能会accept（批准）该提案，当有<strong>足够多</strong>的Acceptor批准该提案的时候，就可以认为这个提案被选定了。</p> <p>这里的足够多怎么界定呢？</p> <p>这个“足够多”的集合是所有Acceptor的一个子集，这个可以包含Acceptor集合中的大多数成员，因为任意两个包含大多数Acceptor的子集至少有一个公共成员。（实际就是超过一半的Acceptor批准）</p> <h3 id="%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B">推导过程</h3> <p>在没有失败和消息丢失的情况下，如果我们希望即使在只有一个提案被提出的情况下，仍然可以选定一个提案，这就暗示如下需求：</p> <p><strong>P1:一个Acceptor必须批准它收到的第一个提案</strong></p> <p>但这个条件存在问题，即多个提案被不同Proposer同时提出，无法最终确定一个提案</p> <p><img fetchpriority="high" decoding="async" alt="" height="195" src="http://img.555519.xyz/uploads3/20220823/19d258a5190646c00a1d70f7d64b38d9.jpg"></p> <p>还会出现不同提案被选定的Acceptor集合数量相同，也无法最终确定一个提案<img decoding="async" alt="" height="183" src="http://img.555519.xyz/uploads3/20220823/d00ee2b886e13f47b71498def5c78c16.jpg"></p> <p>因此，需要在P1的基础上，在加“一个Acceptor必须能够批准不止一个提案”的条件。</p> <p>这里将每个提案抽象成一个“【编号，Value】”的结构</p> <ul> <li>编号是全局唯一的，可以唯一标识一个被Acceptor批准的提案</li> <li>当具有某个Value值的提案被一半以上的Acceptor批准后，我们就认为这个提案被选定了</li> </ul> <p>&nbsp;我们约定：虽然允许多个提案被选定，但是必须保证被选定的提案都具有相同的Value值，即</p> <p><strong>P2:如果【M0，V0】的提案被选定了，那么所有编号比M0高的且被选定的提案，Value值都是V0</strong></p> <p>这里对于P2的证明需要用到数学归纳法，这里不做详述</p> <h2 id="Proposer%E7%94%9F%E6%88%90%E6%8F%90%E6%A1%88">Proposer生成提案</h2> <p>由于P2条件，Proposer在产生一个编号为Mn的提案时，必须知道当前某一个将要或者已经被半数以上的Acceptor批准的编号小于Mn但最大的提案。并且&nbsp;Proposer会要求所有的Acceptor都不能再批准任何编号小于Mn的提案。</p> <p><strong>Prepare请求</strong></p> <p>Proposer选择一个新的提案编号Mn，然后向某个Acceptor集合发送请求，要求其作出如下响应：</p> <ol> <li>承诺不在接受任何编号小于Mn的提案</li> <li>如果此Acceptor批准过提案，就返回已经批准的编号小于Mn但最大的提案的Value值</li> </ol> <p><strong>Accept请求</strong></p> <p>如果Proposer收到一半以上Acceptor的响应结果，那么它就可以产生【Mn，Vn】的提案，这里的Vn是所有响应中编号最大提案的Vaule值，如果大多数Acceptor没有批准过提案，则Vn任意。之后将该提案再次发送给某个Acceptor集合，期望获得批准。</p> <h2 id="Accpetor%E6%89%B9%E5%87%86%E6%8F%90%E6%A1%88">Accpetor批准提案</h2> <p><strong>收到Prepare请求</strong></p> <p>Acceptor可以在任何时候响应一个prepare请求</p> <p><strong>收到Accept请求</strong></p> <p>在不违背承诺的前提下，可以任意响应Accept请求</p> <p>即一个Acceptor只要未响应过任何编号大于Mn的Prepare请求，则它可以接受这个编号为Mn的提案</p> <h2 id="%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B">算法流程</h2> <p>阶段一<br /> 1. Proposer选择一个提案编号Mn，然后向超过半数的Acceptor子集发送编号为Mn的Prepare请求。<br /> 2.如果一个Acceptor收到一个编号为Mn的Prepare请求，且编号Mn大于该Acceptor已经响应的所有Prepare请求的编号，那么它就会将它已经批准过的最大编号的提案作为响应反馈给Proposer，同时该Acceptor会承诺不会再批准任何编号小于Mn的提案。</p> <p>阶段二</p> <p>1.如果Proposer收到来自半数以上的Acceptor对于其发出的编号为Mn的Prepare请求的响应，那么它就会发送一个【Mn，Vn】提案的Accept请求给Acceptor。Vn的值就是收到的响应中编号最大的提案的值，如果响应中不包含任何提案，那么它就是任意值。<br /> 2.如果Acceptor收到这个针对【Mn，Vn】提案的Accept请求，只要该Acceptor尚未对编号大于Mn的Prepare请求做出响应，它就可以通过这个提案。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48034.htm">@Transactional 详解</a></p>
+                                        <p>下一个：<a href="/news/article-48413.htm">vue路由自动加载、按组件异步载入vuex以及dll优化</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32382.htm" title="猫咪宠物疫苗一针多少钱打的好（宠物猫疫苗要多少钱）">猫咪宠物疫苗一针多少钱打的好（宠物猫疫苗要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-49041.htm" title="动物打完疫苗需要注意什么事项和事项（动物打疫苗后多久能杀了吃）">动物打完疫苗需要注意什么事项和事项（动物打疫苗后多久能杀了吃）</a></li>
+                        <li class="py-2"><a href="/news/article-41600.htm" title="动物门诊部（动物诊所是干什么的）">动物门诊部（动物诊所是干什么的）</a></li>
+                        <li class="py-2"><a href="/news/article-35587.htm" title="被猫抓伤了怎么判断没事图片（被猫抓伤了怎么判断没事图片真实一点）">被猫抓伤了怎么判断没事图片（被猫抓伤了怎么判断没事图片真实一点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share.htm" title="「12月13日」最高速度22.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月13日」最高速度22.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-37153.htm" title="动物医院简历（动物医院主要工作）">动物医院简历（动物医院主要工作）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-high-speed-nodes.htm" title="「10月20日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月20日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-26716.htm" title="全国十大兽药厂家排名 中国最好的兽药厂家">全国十大兽药厂家排名 中国最好的兽药厂家</a></li>
+                        <li class="py-2"><a href="/news/article-32381.htm" title="参观动物医院的实验报告总结（动物医院社会实践报告）">参观动物医院的实验报告总结（动物医院社会实践报告）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-hysteria-node-github.htm" title="「12月4日」最高速度21.4M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月4日」最高速度21.4M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About Area End =================-->
+        <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    HysteriaWindows免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                    <a href="#"><i class="ti-dribbble"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/popper.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/contact.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/theme.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
