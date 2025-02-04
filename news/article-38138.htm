@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://hysteriawindows.github.io/news/article-38138.htm" />
@@ -9,12 +9,39 @@
     <title>系统设计限流算法及其周边</title>
         <meta name="description" content="概述 限流，其基础含义为对流量进行限制，其既包括在速率上的限制，又包括在资源上的限制，这里主要讨论的是对速率进行限制。 本文分为三部分，第一部分中我们将讨论在做限流前必须要弄清的问题：   为什么要去" />
         <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-38138.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="系统设计限流算法及其周边" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/0b5262547d522c3091ac6c80630214e1.webp" />
+        <meta property="og:release_date" content="2025-01-09T05:59:56" />
+    <meta property="og:updated_time" content="2025-01-09T05:59:56" />
+        <meta property="og:description" content="概述 限流，其基础含义为对流量进行限制，其既包括在速率上的限制，又包括在资源上的限制，这里主要讨论的是对速率进行限制。 本文分为三部分，第一部分中我们将讨论在做限流前必须要弄清的问题：   为什么要去" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="系统设计限流算法及其周边">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
-    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/animate-css/animate.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
     <!-- main css -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
@@ -95,16 +122,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe.htm" title="「1月8日」最高速度18M/S，2025年Hysteria每天更新免费机场订阅节点链接">「1月8日」最高速度18M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="「11月30日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月30日」最高速度19.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-subscribe-node.htm" title="「12月9日」最高速度21.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月9日」最高速度21.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-27652.htm" title="宠物美容学校排行榜前十名有哪些（全国前十宠物美容学校排名）">宠物美容学校排行榜前十名有哪些（全国前十宠物美容学校排名）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-high-speed-nodes.htm" title="「12月2日」最高速度20.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月2日」最高速度20.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-18911.htm" title="领养宠物需要注意的事项有哪些（领养宠物需要收费吗）">领养宠物需要注意的事项有哪些（领养宠物需要收费吗）</a></li>
-                        <li class="py-2"><a href="/news/article-32381.htm" title="参观动物医院的实验报告总结（动物医院社会实践报告）">参观动物医院的实验报告总结（动物医院社会实践报告）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-subscribe-node.htm" title="「12月17日」最高速度20M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月17日」最高速度20M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-23015.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-37746.htm" title="猫咪的三针疫苗间隔多久（猫咪三针疫苗间隔时间）">猫咪的三针疫苗间隔多久（猫咪三针疫苗间隔时间）</a></li>
+                        <li class="py-2"><a href="/news/article-41119.htm" title="狗粮进货找哪个厂家（狗粮批发市场进货渠道）">狗粮进货找哪个厂家（狗粮批发市场进货渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-hysteria-node-share.htm" title="「1月3日」最高速度18.4M/S，2025年Hysteria每天更新免费机场订阅节点链接">「1月3日」最高速度18.4M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-29508.htm" title="微信小程序navigateTo函数报错errMsg: “navigateTo:fail page “&#8230;“ is not found“">微信小程序navigateTo函数报错errMsg: “navigateTo:fail page “&#8230;“ is not found“</a></li>
+                        <li class="py-2"><a href="/news/article-19349.htm" title="南京宠物领养中心官网（南京宠物领养中心官网招聘）">南京宠物领养中心官网（南京宠物领养中心官网招聘）</a></li>
+                        <li class="py-2"><a href="/news/article-47074.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-23938.htm" title="宠物粮食加工厂设备生产厂家电话号码查询（宠物粮食加工厂设备生产厂家电话号码查询）">宠物粮食加工厂设备生产厂家电话号码查询（宠物粮食加工厂设备生产厂家电话号码查询）</a></li>
+                        <li class="py-2"><a href="/news/article-45085.htm" title="宠物领养市场经济可行性分析报告怎么写（宠物领养数据）">宠物领养市场经济可行性分析报告怎么写（宠物领养数据）</a></li>
+                        <li class="py-2"><a href="/news/article-44105.htm" title="动物疫苗接种方法有哪些类型图片 动物疫苗接种方法有哪些类型图片大全">动物疫苗接种方法有哪些类型图片 动物疫苗接种方法有哪些类型图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-40613.htm" title="宠物粮食代理需要多少钱一个月 宠物粮食代理需要多少钱一个月呢">宠物粮食代理需要多少钱一个月 宠物粮食代理需要多少钱一个月呢</a></li>
+                        <li class="py-2"><a href="/news/article-22557.htm" title="家庭小型狗粮加工机器 家庭小型狗粮加工机器图片">家庭小型狗粮加工机器 家庭小型狗粮加工机器图片</a></li>
                     </ul>
     </div>
 </div>
@@ -116,16 +143,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

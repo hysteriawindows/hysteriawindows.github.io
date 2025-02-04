@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://hysteriawindows.github.io/news/article-23935.htm" />
@@ -9,12 +9,39 @@
     <title>PyTorch的自动求导机制详细解析，PyTorch的核心魔法</title>
         <meta name="description" content="点击上方“AI公园”，关注公众号，选择加“星标“或“置顶”   作者：Vaibhav Kumar 编译：ronghuaiyang   导读 这篇文章详细解析了PyTorch的自动求导机制，让你了解Py" />
         <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-23935.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="PyTorch的自动求导机制详细解析，PyTorch的核心魔法" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/3f0b48ff93e564e1374cd12de570efe7.webp" />
+        <meta property="og:release_date" content="2024-12-10T10:00:08" />
+    <meta property="og:updated_time" content="2024-12-10T10:00:08" />
+        <meta property="og:description" content="点击上方“AI公园”，关注公众号，选择加“星标“或“置顶”   作者：Vaibhav Kumar 编译：ronghuaiyang   导读 这篇文章详细解析了PyTorch的自动求导机制，让你了解Py" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PyTorch的自动求导机制详细解析，PyTorch的核心魔法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
-    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="__ADDON__/js/frontend/hysteriawindows/animate-css/animate.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
     <!-- main css -->
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
     <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
@@ -95,16 +122,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-17-hysteria-node.htm" title="「9月17日」最高速度22.7M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月17日」最高速度22.7M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-sing-hysteria-windows.htm" title="「10月6日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月6日」最高速度18.6M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-subscribe-node.htm" title="「11月2日」最高速度22.9M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月2日」最高速度22.9M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-12-hysteria-node-github.htm" title="「9月12日」最高速度20.5M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月12日」最高速度20.5M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-subscribe-node.htm" title="「12月14日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月14日」最高速度20.8M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-29042.htm" title="附近免费领狗狗在哪里（附近有没有免费的狗狗领）">附近免费领狗狗在哪里（附近有没有免费的狗狗领）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-hysteria-node-share.htm" title="「9月24日」最高速度18.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「9月24日」最高速度18.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-node-subscribe-links.htm" title="「10月5日」最高速度22.5M/S，2024年Hysteria每天更新免费机场订阅节点链接">「10月5日」最高速度22.5M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-22-latest-hysteria-node.htm" title="「8月22日」最高速度20.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「8月22日」最高速度20.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-32382.htm" title="猫咪宠物疫苗一针多少钱打的好（宠物猫疫苗要多少钱）">猫咪宠物疫苗一针多少钱打的好（宠物猫疫苗要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-19803.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-node-subscribe-links.htm" title="「2月2日」最高速度19.7M/S，2025年Hysteria每天更新免费机场订阅节点链接">「2月2日」最高速度19.7M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-42107.htm" title="动物疫苗空瓶回收处理制度（疫苗空瓶回收登记表怎么填写）">动物疫苗空瓶回收处理制度（疫苗空瓶回收登记表怎么填写）</a></li>
+                        <li class="py-2"><a href="/news/article-48413.htm" title="vue路由自动加载、按组件异步载入vuex以及dll优化">vue路由自动加载、按组件异步载入vuex以及dll优化</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-subscribe-node.htm" title="「11月22日」最高速度19.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月22日」最高速度19.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23015.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-node-subscribe.htm" title="「11月10日」最高速度18.7M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月10日」最高速度18.7M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32851.htm" title="es修改字段text类型为date类型">es修改字段text类型为date类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share-links.htm" title="「11月26日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月26日」最高速度21.3M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-node-subscribe-links.htm" title="「11月25日」最高速度21.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月25日」最高速度21.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -116,22 +143,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
