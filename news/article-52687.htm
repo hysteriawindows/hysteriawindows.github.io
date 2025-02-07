@@ -1,0 +1,209 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://hysteriawindows.github.io/news/article-52687.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>面向对象编程原则(03)——单一职责原则</title>
+        <meta name="description" content="本文原创作者：谷哥的小弟 作者博客地址：http://blog.csdn.net/lfdfhl     《大话设计模式》 作者：程杰 《Java设计模式》 作者：刘伟 《图解设计模式》 作者：结城浩 " />
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-52687.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="面向对象编程原则(03)——单一职责原则" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/4d7050d2d9071ea473054daae0ad1ebd.webp" />
+        <meta property="og:release_date" content="2025-02-07T07:19:57" />
+    <meta property="og:updated_time" content="2025-02-07T07:19:57" />
+        <meta property="og:description" content="本文原创作者：谷哥的小弟 作者博客地址：http://blog.csdn.net/lfdfhl     《大话设计模式》 作者：程杰 《Java设计模式》 作者：刘伟 《图解设计模式》 作者：结城浩 " />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="面向对象编程原则(03)——单一职责原则">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W3GH5FWSVJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="/">
+                                        <span>Hysteria Windows</span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Hero Banner Area Start =================-->
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container text-center">
+            <h1>面向对象编程原则(03)——单一职责原则</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!--================Hero Banner Area End =================-->
+    <!--================About  Area =================-->
+    <section class="statics-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <hr/> </h1> <ul> <li>本文原创作者：谷哥的小弟</li> <li>作者博客地址：http://blog.csdn.net/lfdfhl</li> </ul> <hr/> </h1> <ol> <li>《大话设计模式》 作者：程杰</li> <li>《Java设计模式》 作者：刘伟</li> <li>《图解设计模式》 作者：结城浩</li> <li>《重学Java设计模式》 作者：付政委</li> <li>《Head First设计模式》作者：埃里克·弗里曼</li> </ol> <hr/> </h1> <p>单一职责原则(Single Responsibility Principle, SRP)是最简单的面向对象设计原则；它常用于控制类的粒度大小。</p> <p>该原则定义如下：</p> <p>一个对象应该只包含单一的职责，并且该职责被完整地封装在一个类中。</p> <blockquote> <p>Every object should have a single responsibility,and that responsibility should be entirely encapsulated by the class.</p> </blockquote> <p>在软件系统中一个类(大到模块，小到方法)承担的职责越多，它被复用的可能性就越小；而且一个类承担的职责过多，相当于将这些职责耦合在一起，当其中一个职责变化时可能会影响其他职责的运作。因此要将这些职责进行分离，将不同的职责封装在不同的类中。即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。</p> <p>单一职责原则是实现高内聚、低耦合的指导方针。它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</p> </h1> <p>在CustomerDataChart类中：</p> <ul> <li>getConnection( )用于连接数据库</li> <li>findCustomers( )用于查询所有客户信息</li> <li>createChart( )用于创建图表</li> <li>displayChart( )用于显示图表</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230205/0652e959102dd275072c9a0639ebbfbc.jpg" alt="面向对象编程原则(03)——单一职责原则"><br /> CustomerDataChart类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库或者使用<br /> findCustomers()方法查询客户信息，则难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它拥有不止一个引起它变化的原因，违背了单一职责原则。</p> <p>因此，需要对该类进行拆分使其满足单一职责原则，可将CustomerDataChart类拆分为以下3个类。</p> <ul> <li>1、DBUtils:负责连接数据库，包含数据库连接方法getConnection( )。</li> <li>2、CustomerDAO：负责操作数据库中的Customer表，包含对Customer表的增、删、改、查等方法，例如findCustomers( )方法。</li> <li>3、CustomerDataChart：负责图表的生成和显示，包含createChart( )方法和displayChart( )方法。</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230205/16dc417cec767ff564ebca9f41551bb9.jpg" alt="面向对象编程原则(03)——单一职责原则"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52163.htm">国家兽药疫苗批号查询系统网站（兽用疫苗批号查询系统）</a></p>
+                                        <p>下一个：<a href="/news/article-52688.htm">成都宠物领养吧贴吧群号（成都宠物领养成都宠物赠送）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-31310.htm" title="宠物用品进货批发网（宠物用品进货批发网有哪些）">宠物用品进货批发网（宠物用品进货批发网有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-node-subscribe-links.htm" title="「11月23日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接">「11月23日」最高速度18.2M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-28575.htm" title="宠物粮食加工厂加盟条件是什么呢 宠物粮食加工厂加盟条件是什么呢视频">宠物粮食加工厂加盟条件是什么呢 宠物粮食加工厂加盟条件是什么呢视频</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-subscribe-node.htm" title="「1月19日」最高速度18.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「1月19日」最高速度18.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-52161.htm" title="02-SpringMVC @RequestMapping注解">02-SpringMVC @RequestMapping注解</a></li>
+                        <li class="py-2"><a href="/news/article-29508.htm" title="微信小程序navigateTo函数报错errMsg: “navigateTo:fail page “&#8230;“ is not found“">微信小程序navigateTo函数报错errMsg: “navigateTo:fail page “&#8230;“ is not found“</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-node-subscribe-links.htm" title="「12月10日」最高速度20.1M/S，2024年Hysteria每天更新免费机场订阅节点链接">「12月10日」最高速度20.1M/S，2024年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-49538.htm" title="安泰动物诊所嘉兴分店（安泰兽药怎么样）">安泰动物诊所嘉兴分店（安泰兽药怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-free-subscribe-node.htm" title="「2月5日」最高速度19.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「2月5日」最高速度19.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-45083.htm" title="做宠物粮食的公司（宠物粮食供应商）">做宠物粮食的公司（宠物粮食供应商）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About Area End =================-->
+        <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    HysteriaWindows免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                    <a href="#"><i class="ti-dribbble"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/popper.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/contact.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/theme.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
