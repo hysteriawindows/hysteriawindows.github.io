@@ -1,0 +1,207 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://hysteriawindows.github.io/news/article-103276.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Springboot2整合activemq</title>
+        <meta name="description" content="小结 这两天过一下springboot中的一些东西，居然看到有结合队列的内容，顺便拿来学一下。但是感觉自己学+做之后，掌握还是不太到位，具体是哪里不到位，是流程吗，还是操作细节。MQ就是消息缓存中间件" />
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-103276.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="Springboot2整合activemq" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/4f58dd16f7c8a6b57000c6b193b7449b.webp" />
+        <meta property="og:release_date" content="2025-04-24T09:17:46" />
+    <meta property="og:updated_time" content="2025-04-24T09:17:46" />
+        <meta property="og:description" content="小结 这两天过一下springboot中的一些东西，居然看到有结合队列的内容，顺便拿来学一下。但是感觉自己学+做之后，掌握还是不太到位，具体是哪里不到位，是流程吗，还是操作细节。MQ就是消息缓存中间件" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot2整合activemq">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W3GH5FWSVJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="/">
+                                        <span>Hysteria Windows</span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Hero Banner Area Start =================-->
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container text-center">
+            <h1>Springboot2整合activemq</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!--================Hero Banner Area End =================-->
+    <!--================About  Area =================-->
+    <section class="statics-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="_0" rel="nofollow"></a>小结</h3> <p>这两天过一下springboot中的一些东西，居然看到有结合队列的内容，顺便拿来学一下。但是感觉自己学+做之后，掌握还是不太到位，具体是哪里不到位，是流程吗，还是操作细节。MQ就是消息缓存中间件，为了避免同步执行导致浪费之间，很多时候只需要把主流程执行完，这个任务就算完成，类似于下单结算和下单之后的短信通知，两个业务可以分开，降低了服务器压力，松耦合。同时也提高了系统的处理能力。</p> <h3><a id="01_8" rel="nofollow"></a>代码01</h3> <h5><a id="_10" rel="nofollow"></a>消息发送实现类</h5> <pre><code class="prism language-java"><span class="token annotation punctuation">@Service</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">MessageServiceActiveImpl</span><span class="token keyword">implements</span><span class="token class-name">MessageService</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Autowired</span><span class="token keyword">private</span><span class="token class-name">JmsMessagingTemplate</span> messagingTemplate<span class="token punctuation">;</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">String</span> id<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"待发送短信的订单已纳入队列：id:"</span><span class="token operator">+</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>         messagingTemplate<span class="token punctuation">.</span><span class="token function">convertAndSend</span><span class="token punctuation">(</span><span class="token string">"order.queue.id"</span><span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">doMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">String</span> id<span class="token operator">=</span> messagingTemplate<span class="token punctuation">.</span><span class="token function">receiveAndConvert</span><span class="token punctuation">(</span><span class="token string">"order.queue.id"</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"已完成短信发送业务。id:"</span><span class="token operator">+</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> id<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h5><a id="_36" rel="nofollow"></a>监听器</h5> <pre><code class="prism language-java"><span class="token annotation punctuation">@Component</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">MessagerListener</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@JmsListener</span><span class="token punctuation">(</span>destination<span class="token operator">=</span><span class="token string">"order.queue.id"</span><span class="token punctuation">)</span><span class="token annotation punctuation">@SendTo</span><span class="token punctuation">(</span><span class="token string">"order.other.queue.demo"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">receive</span><span class="token punctuation">(</span><span class="token class-name">String</span> id<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"已完成短信发送业务，id"</span><span class="token operator">+</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"new"</span><span class="token operator">+</span>id<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h5><a id="pomxml_54" rel="nofollow"></a>依赖pom.xml</h5> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-activemq<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.5.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <h5><a id="yaml_72" rel="nofollow"></a>配置文件yaml</h5> <pre><code class="prism language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span><span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">9300</span><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">activemq</span><span class="token punctuation">:</span><span class="token key atrule">broker-url</span><span class="token punctuation">:</span> tcp<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">61616</span><span class="token key atrule">jms</span><span class="token punctuation">:</span><span class="token key atrule">template</span><span class="token punctuation">:</span><span class="token key atrule">default-destination</span><span class="token punctuation">:</span> itheima<span class="token key atrule">pub-sub-domain</span><span class="token punctuation">:</span><span class="token boolean important">true</span></code></pre> <p>此外就是通过两个控制器的接口，利用postman发送请求，进行调用。</p> <p>这两天另外找时间去优化下自己以前写的代码，试试java8stream流写法。</p> <p>整理清除业务逻辑，降低后期运维成本。</p> <p>爱自己，come on!</p> <h3><a id="git_98" rel="nofollow"></a>git地址</h3> <pre><code>git@gitee.com:shenjhhh/black-horse-spring-boot2-black.git</code></pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-103274.htm">将视频转换为HTML5 ogg / ogv和mpg4</a></p>
+                                        <p>下一个：<a href="/news/article-103983.htm">狗粮猫粮加工设备有哪些 狗粮猫粮加工设备有哪些品牌</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-hysteria-node.htm" title="「4月11日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月11日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-100916.htm" title="猫三针疫苗多少钱一只啊（猫猫的三针疫苗多少钱）">猫三针疫苗多少钱一只啊（猫猫的三针疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-77809.htm" title="上海2020年宠物领养活动有哪些公司呢（上海正规宠物领养机构）">上海2020年宠物领养活动有哪些公司呢（上海正规宠物领养机构）</a></li>
+                        <li class="py-2"><a href="/news/article-84083.htm" title="猫打疫苗一共打几针多少钱啊（猫打疫苗一共打几针多少钱啊）">猫打疫苗一共打几针多少钱啊（猫打疫苗一共打几针多少钱啊）</a></li>
+                        <li class="py-2"><a href="/news/article-86944.htm" title="动物医疗器械市场（动物医疗设备）">动物医疗器械市场（动物医疗设备）</a></li>
+                        <li class="py-2"><a href="/news/article-72400.htm" title="办理动物医院需要什么手续和证件和证件材料（开办一间动物医院需要什么资质）">办理动物医院需要什么手续和证件和证件材料（开办一间动物医院需要什么资质）</a></li>
+                        <li class="py-2"><a href="/news/article-76452.htm" title="IndexError: tensors used as indices must be long, byte or bool tensors">IndexError: tensors used as indices must be long, byte or bool tensors</a></li>
+                        <li class="py-2"><a href="/news/article-82648.htm" title="动物疫苗价格查询表图片大全最新（动物疫苗价格查询表图片大全最新版）">动物疫苗价格查询表图片大全最新（动物疫苗价格查询表图片大全最新版）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-16-node-share-links.htm" title="「4月16日」最高速度18.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月16日」最高速度18.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-100915.htm" title="动物疫苗的使用方法有哪些图片大全（动物疫苗知识）">动物疫苗的使用方法有哪些图片大全（动物疫苗知识）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">77</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About Area End =================-->
+        <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    HysteriaWindows免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                    <a href="#"><i class="ti-dribbble"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/popper.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/contact.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/theme.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
