@@ -1,0 +1,207 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://hysteriawindows.github.io/news/article-108250.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>如何在MySQL查询的DATETIME字段中添加一天？</title>
+        <meta name="description" content="借助DATE_ADD()函数，我们可以将一天添加到表的DATETIME字段中。 mysql&gt;&nbsp;Select&nbsp;StudentName,&nbsp;RegDate,&nbsp;D" />
+        <link rel="icon" href="/assets/website/img/hysteriawindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="HysteriaWindows免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://hysteriawindows.github.io/news/article-108250.htm" />
+    <meta property="og:site_name" content="HysteriaWindows免费节点官网" />
+    <meta property="og:title" content="如何在MySQL查询的DATETIME字段中添加一天？" />
+    <meta property="og:image" content="https://hysteriawindows.github.io/uploads/20240814/4f58dd16f7c8a6b57000c6b193b7449b.webp" />
+        <meta property="og:release_date" content="2025-04-30T09:34:46" />
+    <meta property="og:updated_time" content="2025-04-30T09:34:46" />
+        <meta property="og:description" content="借助DATE_ADD()函数，我们可以将一天添加到表的DATETIME字段中。 mysql&gt;&nbsp;Select&nbsp;StudentName,&nbsp;RegDate,&nbsp;D" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何在MySQL查询的DATETIME字段中添加一天？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/bootstrap.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/hysteriawindows/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/style.css">
+    <link rel="stylesheet" href="/assets/website/css/hysteriawindows/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3GH5FWSVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W3GH5FWSVJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="/">
+                                        <span>Hysteria Windows</span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Hero Banner Area Start =================-->
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container text-center">
+            <h1>如何在MySQL查询的DATETIME字段中添加一天？</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!--================Hero Banner Area End =================-->
+    <!--================About  Area =================-->
+    <section class="statics-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>借助DATE_ADD()函数，我们可以将一天添加到表的DATETIME字段中。</p> <pre>mysql&gt;&nbsp;Select&nbsp;StudentName,&nbsp;RegDate,&nbsp;Date_ADD(RegDate,&nbsp;INTERVAL&nbsp;+1&nbsp;day)&nbsp;AS&nbsp;'NEXT&nbsp;DAY' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;testing&nbsp;where&nbsp;StudentName&nbsp;=&nbsp;'gaurav';  +-------------+---------------------+---------------------+ |&nbsp;StudentName&nbsp;|&nbsp;RegDate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;NEXT&nbsp;DAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-------------+---------------------+---------------------+ |&nbsp;Gaurav&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2017-10-29&nbsp;08:48:33&nbsp;|&nbsp;2017-10-30&nbsp;08:48:33&nbsp;| +-------------+---------------------+---------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>以上查询将在RegDate中添加一天，其中MySQL表名为“ testing”的StudentName是Gaurav。</p> <div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-107418.htm">属马人养猫好吗（属马养猫好不好）</a></p>
+                                        <p>下一个：<a href="/news/article-108251.htm">PHP别名/导入名称空间方法详解</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-66562.htm" title="宠物医院好评语句有哪些（给宠物医院的好评一百字）">宠物医院好评语句有哪些（给宠物医院的好评一百字）</a></li>
+                        <li class="py-2"><a href="/news/article-81921.htm" title="动物疫苗采购信息简报内容（动物疫苗采购信息简报内容有哪些）">动物疫苗采购信息简报内容（动物疫苗采购信息简报内容有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-high-speed-nodes.htm" title="「4月15日」最高速度21.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月15日」最高速度21.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-65962.htm" title="宠物领养协议文案范文怎么写（宠物领养协议是否有法律效力）">宠物领养协议文案范文怎么写（宠物领养协议是否有法律效力）</a></li>
+                        <li class="py-2"><a href="/news/article-73071.htm" title="动物医院设计平面图（动物医院布局设计及分析）">动物医院设计平面图（动物医院布局设计及分析）</a></li>
+                        <li class="py-2"><a href="/news/article-92095.htm" title="pymysql 连接mysql（带参数变量）">pymysql 连接mysql（带参数变量）</a></li>
+                        <li class="py-2"><a href="/news/article-90995.htm" title="东门宠物用品批发市场联系电话（东门宠物一条街）">东门宠物用品批发市场联系电话（东门宠物一条街）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-node-share.htm" title="「4月17日」最高速度20.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月17日」最高速度20.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-73731.htm" title="上海宠物领养网（上海宠物狗领养网站）">上海宠物领养网（上海宠物狗领养网站）</a></li>
+                        <li class="py-2"><a href="/news/article-90590.htm" title="附近免费领养狗边牧的地方 附近免费领养狗边牧的地方在哪里">附近免费领养狗边牧的地方 附近免费领养狗边牧的地方在哪里</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About Area End =================-->
+        <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    HysteriaWindows免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                    <a href="#"><i class="ti-dribbble"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/popper.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/contact.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/hysteriawindows/theme.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
