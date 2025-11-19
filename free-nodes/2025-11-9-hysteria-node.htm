@@ -142,39 +142,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分类管理有什么作用？</h5></div>
-    <div class="panel-body">
-        节点分类可按地区、延迟或用途分组，结合策略组实现自动分流。方便管理大量节点，快速选择最优节点，提高访问速度和连接稳定性，优化网络管理效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 混淆方式如何提高抗封锁能力？</h5></div>
-    <div class="panel-body">
-        SSR 混淆可将流量伪装成正常 HTTPS 或 HTTP 数据，降低被 DPI 检测风险。合理选择协议和混淆参数组合，可以提高节点稳定性和长期可用性，保证科学上网体验顺畅。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何更新 Clash 的订阅节点？</h5></div>
-    <div class="panel-body">
-        在 Clash 中更新订阅节点，只需在配置页面中点击“Update”或“Refresh”按钮即可。系统会重新下载订阅链接中的内容，自动替换旧节点。这样能确保用户随时获取最新可用节点，避免连接失败或延迟过高。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 连接延迟过高该如何优化？</h5></div>
-    <div class="panel-body">
-        可尝试切换传输协议（如 WS、gRPC）、调整 MTU 或启用 MUX 多路复用功能。同时检查服务器地理位置、带宽和延迟，并选择最优节点以降低延迟。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
     <div class="panel-body">
         支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 相比 VMess 的主要改进是什么？</h5></div>
+    <div class="panel-heading"><h5>如何更新 Clash 的订阅节点？</h5></div>
     <div class="panel-body">
-        VLESS 是 VMess 的后继协议，移除了加密层以减少服务器资源消耗，同时提供更灵活的加密与传输方式选择。它更轻量、可扩展性更好，常被用于与 XTLS 等新传输协议搭配使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的安全性是否优于 Shadowsocks？</h5></div>
-    <div class="panel-body">
-        VMess 拥有动态验证机制和更复杂的握手协议，相较于静态密钥的 Shadowsocks 安全性更高。它能有效抵御重放攻击和 DPI 检测，更适合长期使用。<hr />    </div>
+        在 Clash 中更新订阅节点，只需在配置页面中点击“Update”或“Refresh”按钮即可。系统会重新下载订阅链接中的内容，自动替换旧节点。这样能确保用户随时获取最新可用节点，避免连接失败或延迟过高。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 如何为游戏流量提供加速？</h5></div>
@@ -187,9 +162,34 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 混淆方式如何提高抗封锁能力？</h5></div>
+    <div class="panel-body">
+        SSR 混淆可将流量伪装成正常 HTTPS 或 HTTP 数据，降低被 DPI 检测风险。合理选择协议和混淆参数组合，可以提高节点稳定性和长期可用性，保证科学上网体验顺畅。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
     <div class="panel-body">
-        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。    </div>
+        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 连接延迟过高该如何优化？</h5></div>
+    <div class="panel-body">
+        可尝试切换传输协议（如 WS、gRPC）、调整 MTU 或启用 MUX 多路复用功能。同时检查服务器地理位置、带宽和延迟，并选择最优节点以降低延迟。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 相比 VMess 的主要改进是什么？</h5></div>
+    <div class="panel-body">
+        VLESS 是 VMess 的后继协议，移除了加密层以减少服务器资源消耗，同时提供更灵活的加密与传输方式选择。它更轻量、可扩展性更好，常被用于与 XTLS 等新传输协议搭配使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 的安全性是否优于 Shadowsocks？</h5></div>
+    <div class="panel-body">
+        VMess 拥有动态验证机制和更复杂的握手协议，相较于静态密钥的 Shadowsocks 安全性更高。它能有效抵御重放攻击和 DPI 检测，更适合长期使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分类管理有什么作用？</h5></div>
+    <div class="panel-body">
+        节点分类可按地区、延迟或用途分组，结合策略组实现自动分流。方便管理大量节点，快速选择最优节点，提高访问速度和连接稳定性，优化网络管理效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -218,16 +218,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-11-node-share.htm" title="「10月11日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月11日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-node-subscribe.htm" title="「11月4日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「11月4日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-26-node-share.htm" title="「10月26日」最高速度18.7M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月26日」最高速度18.7M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-21-free-high-speed-nodes.htm" title="「10月21日」最高速度19.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月21日」最高速度19.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-17-free-node-subscribe.htm" title="「10月17日」最高速度18.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月17日」最高速度18.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-11-hysteria-node-share.htm" title="「11月11日」最高速度22.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「11月11日」最高速度22.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-15-hysteria-github.htm" title="「10月15日」最高速度19.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月15日」最高速度19.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-12-today-hysteria-node.htm" title="「10月12日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月12日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-14-latest-hysteria-node.htm" title="「10月14日」最高速度18.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月14日」最高速度18.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-free-hysteria-node.htm" title="「10月19日」最高速度20.4M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月19日」最高速度20.4M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-25-sing-hysteria-windows.htm" title="「10月25日」最高速度21.9M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月25日」最高速度21.9M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-9-node-share-links.htm" title="「10月9日」最高速度18.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月9日」最高速度18.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-13-hysteria-node-github.htm" title="「10月13日」最高速度18.9M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月13日」最高速度18.9M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-7-hysteria-github.htm" title="「10月7日」最高速度21.7M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月7日」最高速度21.7M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-free-node-subscribe-links.htm" title="「11月7日」最高速度19.9M/S，2025年Hysteria每天更新免费机场订阅节点链接">「11月7日」最高速度19.9M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-2-hysteria-github.htm" title="「11月2日」最高速度19.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「11月2日」最高速度19.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-node-subscribe.htm" title="「11月4日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「11月4日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-11-node-share.htm" title="「10月11日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月11日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-23-node-share.htm" title="「10月23日」最高速度21.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「10月23日」最高速度21.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -239,7 +239,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
