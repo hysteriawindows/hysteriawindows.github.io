@@ -291,17 +291,18 @@ Clash设计精简高效，能够快速处理大量网络请求，保持稳定且
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-4-28-free-hysteria-node.htm">「4月28日」最高速度21M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></p>
+        <p>下一个：<a href="/free-nodes/2026-4-30-free-subscribe-node.htm">「4月30日」最高速度21.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议参数和混淆参数如何配置最安全？</h5></div>
+    <div class="panel-heading"><h5>Clash 的 Rule Provider 有什么作用？</h5></div>
     <div class="panel-body">
-        选择 AEAD 或协议插件可提升安全性，混淆方式如 tls1.2_ticket_auth 可以模拟正常 HTTPS 流量。合理搭配协议和混淆参数，能够有效抵御 DPI 检测和流量封锁。<hr />    </div>
+        Rule Provider 是 Clash 的规则分发机制。用户可以订阅不同的规则集，比如广告拦截、社交媒体、流媒体等，实现按需加载。它让配置文件更加简洁、动态更新，并支持多源规则管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 UDP 转发如何配置？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 策略组如何优化视频访问？</h5></div>
     <div class="panel-body">
-        Netch 可在客户端设置 UDP 转发开关，选择需要代理的 UDP 流量端口或应用。适用于游戏、语音或实时视频，确保这些应用在代理环境下低延迟且稳定。<hr />    </div>
+        通过策略组将视频流量分配到低延迟、高带宽节点，Surfboard 可自动切换到最佳节点。减少缓冲和卡顿，提高在线视频播放流畅性和整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 可以定时更新订阅节点吗？</h5></div>
@@ -314,19 +315,9 @@ Clash设计精简高效，能够快速处理大量网络请求，保持稳定且
         在 Clash 中使用自定义 DNS 可以加快域名解析速度。建议使用 doh（DNS over HTTPS）或 dot（DNS over TLS）配置方式，既能提升速度，也能保护隐私防止 DNS 泄露。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 可以做什么？</h5></div>
+    <div class="panel-heading"><h5>SSR 的协议参数和混淆参数如何配置最安全？</h5></div>
     <div class="panel-body">
-        Netch 是一款 Windows 平台的网络加速工具，支持基于 V2Ray、Socks5、Shadowsocks 等协议的代理。它可用于加速游戏、视频或网站访问，并能通过 TAP 模式实现系统级代理，广受游戏玩家喜爱。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 策略组如何优化视频访问？</h5></div>
-    <div class="panel-body">
-        通过策略组将视频流量分配到低延迟、高带宽节点，Surfboard 可自动切换到最佳节点。减少缓冲和卡顿，提高在线视频播放流畅性和整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持节点手动排序？</h5></div>
-    <div class="panel-body">
-        支持。用户可以根据延迟或使用需求手动排序节点顺序，结合策略组和规则文件实现基本分流管理。虽然不支持自动订阅更新，但满足轻量用户的节点管理需求。<hr />    </div>
+        选择 AEAD 或协议插件可提升安全性，混淆方式如 tls1.2_ticket_auth 可以模拟正常 HTTPS 流量。合理搭配协议和混淆参数，能够有效抵御 DPI 检测和流量封锁。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的多出口策略有什么作用？</h5></div>
@@ -339,9 +330,19 @@ Clash设计精简高效，能够快速处理大量网络请求，保持稳定且
         ws+tls 模式利用 WebSocket 伪装成普通 HTTPS 流量，使得防火墙难以区分代理与正常访问。该模式兼容性强，适合部署在支持 Nginx 或 Caddy 的 Web 服务器上。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Rule Provider 有什么作用？</h5></div>
+    <div class="panel-heading"><h5>Netch 的 UDP 转发如何配置？</h5></div>
     <div class="panel-body">
-        Rule Provider 是 Clash 的规则分发机制。用户可以订阅不同的规则集，比如广告拦截、社交媒体、流媒体等，实现按需加载。它让配置文件更加简洁、动态更新，并支持多源规则管理。    </div>
+        Netch 可在客户端设置 UDP 转发开关，选择需要代理的 UDP 流量端口或应用。适用于游戏、语音或实时视频，确保这些应用在代理环境下低延迟且稳定。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否支持节点手动排序？</h5></div>
+    <div class="panel-body">
+        支持。用户可以根据延迟或使用需求手动排序节点顺序，结合策略组和规则文件实现基本分流管理。虽然不支持自动订阅更新，但满足轻量用户的节点管理需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 可以做什么？</h5></div>
+    <div class="panel-body">
+        Netch 是一款 Windows 平台的网络加速工具，支持基于 V2Ray、Socks5、Shadowsocks 等协议的代理。它可用于加速游戏、视频或网站访问，并能通过 TAP 模式实现系统级代理，广受游戏玩家喜爱。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -370,16 +371,16 @@ Clash设计精简高效，能够快速处理大量网络请求，保持稳定且
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-19-hysteria-node.htm" title="「3月19日」最高速度19.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「3月19日」最高速度19.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-20-node-share.htm" title="「3月20日」最高速度18.7M/S，2025年Hysteria每天更新免费机场订阅节点链接">「3月20日」最高速度18.7M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-9-free-hysteria-node.htm" title="「3月9日」最高速度22.4M/S，2025年Hysteria每天更新免费机场订阅节点链接">「3月9日」最高速度22.4M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-21-hysteria-node.htm" title="「3月21日」最高速度19.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「3月21日」最高速度19.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-22-hysteria-github.htm" title="「4月22日」最高速度20.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月22日」最高速度20.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-2-hysteria-node-share.htm" title="「5月2日」最高速度18.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「5月2日」最高速度18.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-9-free-node-subscribe.htm" title="「4月9日」最高速度19.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月9日」最高速度19.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-26-today-hysteria-node.htm" title="「4月26日」最高速度19.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月26日」最高速度19.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-20-hysteria-node.htm" title="「4月20日」最高速度22.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月20日」最高速度22.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-25-hysteria-node-share.htm" title="「4月25日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月25日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-29-free-subscribe-node.htm" title="「3月29日」最高速度20.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「3月29日」最高速度20.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-22-today-hysteria-node.htm" title="「3月22日」最高速度21.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「3月22日」最高速度21.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-11-today-hysteria-node.htm" title="「4月11日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月11日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-2-free-node-subscribe.htm" title="「4月2日」最高速度20.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月2日」最高速度20.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-24-free-hysteria-node.htm" title="「4月24日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月24日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-27-today-hysteria-node.htm" title="「4月27日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月27日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-29-hysteria-github.htm" title="「4月29日」最高速度19.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月29日」最高速度19.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-6-free-high-speed-nodes.htm" title="「5月6日」最高速度20.4M/S，2025年Hysteria每天更新免费机场订阅节点链接">「5月6日」最高速度20.4M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-19-latest-hysteria-node.htm" title="「4月19日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月19日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -391,10 +392,10 @@ Clash设计精简高效，能够快速处理大量网络请求，保持稳定且
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
