@@ -326,16 +326,6 @@ netsh winsock reset
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
-    <div class="panel-body">
-        TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 支持订阅链接导入吗？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 不支持自动订阅功能，用户需手动添加节点。如果想批量导入订阅，可使用其他客户端生成节点二维码，再手动扫描添加。适合轻量使用者。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络中的优势？</h5></div>
     <div class="panel-body">
         QUIC 基于 UDP 协议，支持多路复用和零握手，可减少延迟和丢包。适合视频、游戏和即时通讯等高丢包环境，保证访问稳定性和速度，提高整体体验。<hr />    </div>
@@ -346,14 +336,24 @@ netsh winsock reset
         Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 如何选择合适混淆提高稳定性？</h5></div>
+    <div class="panel-heading"><h5>Clash for Android 如何导入订阅并自动更新？</h5></div>
     <div class="panel-body">
-        选择混淆方式时应根据网络环境和封锁程度，例如 tls1.2_ticket_auth 可模拟 HTTPS 流量。合理组合协议和混淆可提升节点稳定性和抗封锁能力，确保长期科学上网体验。<hr />    </div>
+        在 Clash for Android 的配置界面中选择“配置文件”→“新建配置”，粘贴订阅链接即可。启用自动更新功能后，软件会定期检查订阅源是否有新节点，并在后台自动替换旧配置，保持节点最新状态。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何定时自动更新节点？</h5></div>
+    <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
     <div class="panel-body">
-        可在计划任务中添加命令 `passwall update` 并设定时间间隔，例如每日凌晨自动更新。这样可确保节点信息实时同步，避免旧节点失效影响连接体验。<hr />    </div>
+        TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何导入 Clash 订阅链接？</h5></div>
+    <div class="panel-body">
+        打开 Clash 客户端，进入 Profiles（配置文件）页面，粘贴提供的订阅链接并点击下载。Clash 会自动更新节点列表，用户可在 Profiles 中选择对应配置启用，从而快速切换不同代理线路。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 支持订阅链接导入吗？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 不支持自动订阅功能，用户需手动添加节点。如果想批量导入订阅，可使用其他客户端生成节点二维码，再手动扫描添加。适合轻量使用者。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 节点延迟检测如何优化网络访问？</h5></div>
@@ -366,14 +366,14 @@ netsh winsock reset
         Clash Premium 版本支持系统级 TUN 模式，可将所有 UDP 流量转发至代理节点。启用该模式后需管理员权限，并在配置文件中添加 dns 与 tun 模块，选择低延迟节点即可实现游戏加速。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何导入 Clash 订阅链接？</h5></div>
+    <div class="panel-heading"><h5>SSR 如何选择合适混淆提高稳定性？</h5></div>
     <div class="panel-body">
-        打开 Clash 客户端，进入 Profiles（配置文件）页面，粘贴提供的订阅链接并点击下载。Clash 会自动更新节点列表，用户可在 Profiles 中选择对应配置启用，从而快速切换不同代理线路。<hr />    </div>
+        选择混淆方式时应根据网络环境和封锁程度，例如 tls1.2_ticket_auth 可模拟 HTTPS 流量。合理组合协议和混淆可提升节点稳定性和抗封锁能力，确保长期科学上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash for Android 如何导入订阅并自动更新？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 如何定时自动更新节点？</h5></div>
     <div class="panel-body">
-        在 Clash for Android 的配置界面中选择“配置文件”→“新建配置”，粘贴订阅链接即可。启用自动更新功能后，软件会定期检查订阅源是否有新节点，并在后台自动替换旧配置，保持节点最新状态。    </div>
+        可在计划任务中添加命令 `passwall update` 并设定时间间隔，例如每日凌晨自动更新。这样可确保节点信息实时同步，避免旧节点失效影响连接体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -402,16 +402,16 @@ netsh winsock reset
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-4-free-hysteria-node.htm" title="「5月4日」最高速度22.4M/S，2025年Hysteria每天更新免费机场订阅节点链接">「5月4日」最高速度22.4M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-11-today-hysteria-node.htm" title="「4月11日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月11日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-16-free-hysteria-node.htm" title="「4月16日」最高速度19.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月16日」最高速度19.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-17-hysteria-node-github.htm" title="「4月17日」最高速度23M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月17日」最高速度23M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-5-3-free-node-subscribe.htm" title="「5月3日」最高速度18.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「5月3日」最高速度18.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-27-today-hysteria-node.htm" title="「4月27日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月27日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-17-hysteria-node-github.htm" title="「4月17日」最高速度23M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月17日」最高速度23M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-9-hysteria-node.htm" title="「5月9日」最高速度20.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「5月9日」最高速度20.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-28-free-hysteria-node.htm" title="「4月28日」最高速度21M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月28日」最高速度21M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-16-free-hysteria-node.htm" title="「4月16日」最高速度19.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月16日」最高速度19.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-25-hysteria-node-share.htm" title="「4月25日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月25日」最高速度20.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-20-hysteria-node.htm" title="「4月20日」最高速度22.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月20日」最高速度22.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-22-hysteria-github.htm" title="「4月22日」最高速度20.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月22日」最高速度20.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-23-hysteria-node.htm" title="「4月23日」最高速度22M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月23日」最高速度22M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-29-hysteria-github.htm" title="「4月29日」最高速度19.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月29日」最高速度19.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-18-latest-hysteria-node.htm" title="「4月18日」最高速度19.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月18日」最高速度19.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-12-free-node-subscribe.htm" title="「4月12日」最高速度19M/S，2025年Hysteria每天更新免费机场订阅节点链接">「4月12日」最高速度19M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-10-hysteria-node-github.htm" title="「5月10日」最高速度22.2M/S，2025年Hysteria每天更新免费机场订阅节点链接">「5月10日」最高速度22.2M/S，2025年Hysteria每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -423,10 +423,10 @@ netsh winsock reset
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
