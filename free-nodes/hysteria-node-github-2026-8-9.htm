@@ -320,6 +320,16 @@ model.fit(x_train, y_train, epochs=</span><span><span class="hljs-number">20</sp
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
+    <div class="panel-body">
+        TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的策略组可设置延迟阈值吗？</h5></div>
+    <div class="panel-body">
+        可以。用户可定义延迟阈值，当节点延迟超过设定值时，策略组会自动切换至其他低延迟节点，提高网络速度和稳定性，优化访问体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的连接失败常见原因有哪些？</h5></div>
     <div class="panel-body">
         Trojan 连接失败可能由于伪装域名错误、TLS 证书过期、防火墙阻挡端口或服务器不可达。通过查看客户端日志可以定位具体原因，并对症下药解决问题。<hr />    </div>
@@ -328,26 +338,6 @@ model.fit(x_train, y_train, epochs=</span><span><span class="hljs-number">20</sp
     <div class="panel-heading"><h5>Sing-box 如何按域名分流优化浏览器流量？</h5></div>
     <div class="panel-body">
         Sing-box 可通过规则匹配域名，将浏览器流量分配到最优节点。结合策略组，可保证网页访问速度和稳定性，同时优化视频和游戏等其他流量，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
-    <div class="panel-body">
-        可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
-    <div class="panel-body">
-        TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化短连接性能？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适用于游戏、即时通讯等高频短连接场景，提高吞吐量和连接稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的策略组可设置延迟阈值吗？</h5></div>
-    <div class="panel-body">
-        可以。用户可定义延迟阈值，当节点延迟超过设定值时，策略组会自动切换至其他低延迟节点，提高网络速度和稳定性，优化访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式在高并发下有什么优势？</h5></div>
@@ -360,6 +350,11 @@ model.fit(x_train, y_train, epochs=</span><span><span class="hljs-number">20</sp
         Matsuri 会定期测速节点延迟，通过策略组自动选择低延迟、高稳定性的节点处理不同流量。无需手动切换，确保网页浏览、视频播放和游戏访问顺畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
+    <div class="panel-body">
+        可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 全局与规则代理如何选择？</h5></div>
     <div class="panel-body">
         全局代理将所有流量通过节点转发，适合游戏或全局科学上网；规则代理只针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，用户可根据需求灵活选择模式。<hr />    </div>
@@ -367,7 +362,12 @@ model.fit(x_train, y_train, epochs=</span><span><span class="hljs-number">20</sp
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 支持节点分类管理吗？</h5></div>
     <div class="panel-body">
-        支持。用户可将节点按地区、用途或延迟分类，结合策略组和规则进行分流。这样可以快速选择最佳节点，提高访问效率并便于维护大量节点。    </div>
+        支持。用户可将节点按地区、用途或延迟分类，结合策略组和规则进行分流。这样可以快速选择最佳节点，提高访问效率并便于维护大量节点。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化短连接性能？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适用于游戏、即时通讯等高频短连接场景，提高吞吐量和连接稳定性，优化整体网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -415,16 +415,16 @@ model.fit(x_train, y_train, epochs=</span><span><span class="hljs-number">20</sp
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-hysteria-github.htm" title="「7月30日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「7月30日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-hysteria-node-2026-7-31.htm" title="「7月31日」最高速度18.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「7月31日」最高速度18.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-22-free-subscribe-node.htm" title="「7月22日」最高速度20.7M/S，2025年Hysteria每天更新免费机场订阅节点链接">「7月22日」最高速度20.7M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-4-hysteria-github.htm" title="「8月4日」最高速度22.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月4日」最高速度22.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/hysteria-node-github-2026-8-13.htm" title="「8月13日」最高速度21.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月13日」最高速度21.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-15-free-high-speed-nodes.htm" title="「7月15日」最高速度21.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「7月15日」最高速度21.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-17.htm" title="「8月17日」最高速度19.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月17日」最高速度19.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/hysteria-node-github-2026-8-19.htm" title="「8月19日」最高速度19.7M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月19日」最高速度19.7M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/hysteria-node-github-2026-8-9.htm" title="「8月9日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月9日」最高速度21.3M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-hysteria-node.htm" title="「8月16日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月16日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-node-share.htm" title="「9月4日」最高速度22.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「9月4日」最高速度22.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/latest-hysteria-node-2026-8-7.htm" title="「8月7日」最高速度22.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月7日」最高速度22.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-1.htm" title="「8月1日」最高速度19M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月1日」最高速度19M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-28-hysteria-node.htm" title="「7月28日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接">「7月28日」最高速度20.5M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-hysteria-node-share.htm" title="「7月21日」最高速度20.8M/S，2025年Hysteria每天更新免费机场订阅节点链接">「7月21日」最高速度20.8M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/hysteria-node-share-2026-9-3.htm" title="「9月3日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「9月3日」最高速度22.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/sing-hysteria-windows-2026-8-29.htm" title="「8月29日」最高速度20.6M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月29日」最高速度20.6M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-hysteria-node-2026-8-27.htm" title="「8月27日」最高速度18.1M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月27日」最高速度18.1M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-subscribe-node.htm" title="「8月26日」最高速度19.9M/S，2025年Hysteria每天更新免费机场订阅节点链接">「8月26日」最高速度19.9M/S，2025年Hysteria每天更新免费机场订阅节点链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -436,10 +436,10 @@ model.fit(x_train, y_train, epochs=</span><span><span class="hljs-number">20</sp
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
