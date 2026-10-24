@@ -1,4 +1,4 @@
-# 「10月17日」最高速度22.7M/S，2025年Hysteria每天更新免费机场订阅节点链接  更新时间 2026-10-17 09:27:32
+# 「10月24日」最高速度21.6M/S，2025年Hysteria每天更新免费机场订阅节点链接  更新时间 2026-10-24 00:50:27
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://hysteriawindows.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://hysteriawindows.github.io/uploads/2026/10/0-20261017.yaml
-- https://hysteriawindows.github.io/uploads/2026/10/1-20261017.yaml
-- https://hysteriawindows.github.io/uploads/2026/10/2-20261017.yaml
-- https://hysteriawindows.github.io/uploads/2026/10/3-20261017.yaml
-- https://hysteriawindows.github.io/uploads/2026/10/4-20261017.yaml
+- https://hysteriawindows.github.io/uploads/2026/10/0-20261024.yaml
+- https://hysteriawindows.github.io/uploads/2026/10/1-20261024.yaml
+- https://hysteriawindows.github.io/uploads/2026/10/2-20261024.yaml
+- https://hysteriawindows.github.io/uploads/2026/10/3-20261024.yaml
+- https://hysteriawindows.github.io/uploads/2026/10/4-20261024.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://hysteriawindows.github.io/uploads/2026/10/0-20261017.txt
-- https://hysteriawindows.github.io/uploads/2026/10/1-20261017.txt
-- https://hysteriawindows.github.io/uploads/2026/10/2-20261017.txt
-- https://hysteriawindows.github.io/uploads/2026/10/3-20261017.txt
-- https://hysteriawindows.github.io/uploads/2026/10/4-20261017.txt
+- https://hysteriawindows.github.io/uploads/2026/10/0-20261024.txt
+- https://hysteriawindows.github.io/uploads/2026/10/1-20261024.txt
+- https://hysteriawindows.github.io/uploads/2026/10/2-20261024.txt
+- https://hysteriawindows.github.io/uploads/2026/10/3-20261024.txt
+- https://hysteriawindows.github.io/uploads/2026/10/4-20261024.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://hysteriawindows.github.io/uploads/2026/10/20261017.json
+- https://hysteriawindows.github.io/uploads/2026/10/20261024.json
 
 ## 更多Clash节点订阅 ：
 
